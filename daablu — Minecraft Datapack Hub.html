@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>daablu | Minecraft Java Datapack Hub — Free Challenge &amp; Worldgen Packs</title>
+
+    <!-- SEO & AdSense Compliance Meta Tags -->
+    <meta name="description" content="Download free, lag-free Minecraft Java Datapacks by daablu including One Block Wide World (FPS Optimized) and Can't Breathe Air. Complete installation guides, devlogs, and version support.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="daablu">
+
+    <!-- Open Graph / Social Share Meta Tags -->
+    <meta property="og:title" content="daablu | Minecraft Java Datapack Hub">
+    <meta property="og:description" content="Free custom Minecraft Java worldgen &amp; hardcore challenge datapacks by daablu with full PC &amp; PojavLauncher installation guides.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="daablu Datapacks">
+    <meta property="og:url" content="https://jr5221098-cpu.github.io/portfolio/">
+
+    <!-- ========================================================= -->
+    <!-- GOOGLE ADSENSE AUTO-ADS SCRIPT (PASTE YOUR PUB ID BELOW)  -->
+    <!-- Replace ca-pub-XXXXXXXXXXXXXXXX with your AdSense ID      -->
+    <!-- ========================================================= -->
+    <!--
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+         crossorigin="anonymous"></script>
+    -->
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind Theme Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        obsidian: '#09090b',
+                        surface: '#0f0f14',
+                        panel: '#15151e',
+                        neon: {
+                            purple: '#9333ea',
+                            bright: '#a855f7',
+                            glow: '#c084fc',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base dark obsidian styling */
+        body {
+            background-color: #09090b;
+            color: #f4f4f5;
+            overflow-x: hidden;
+        }
+
+        /* Subtle cyber grid background */
+        .bg-grid {
+            background-size: 42px 42px;
+            background-image:
+                linear-gradient(to right, rgba(168, 85, 247, 0.055) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(168, 85, 247, 0.055) 1px, transparent 1px);
+        }
+
+        /* Glassmorphism card with neon purple border & hover elevation */
+        .glass-card {
+            background: rgba(15, 15, 20, 0.78);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(168, 85, 247, 0.22);
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(168, 85, 247, 0.58);
+            box-shadow: 0 0 28px rgba(147, 51, 234, 0.18);
+        }
+
+        /* Glowing neon purple primary button */
+        .purple-glow-btn {
+            background: linear-gradient(135deg, #9333ea 0%, #7e22ce 100%);
+            box-shadow: 0 4px 20px rgba(147, 51, 234, 0.42);
+            transition: all 0.25s ease;
+        }
+        .purple-glow-btn:hover:not(:disabled) {
+            background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
+            box-shadow: 0 6px 28px rgba(168, 85, 247, 0.65);
+            transform: translateY(-1px);
+        }
+        .purple-glow-btn:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+        /* Static non-clickable Welcome badge styling */
+        .welcome-static-badge {
+            background: linear-gradient(135deg, #9333ea 0%, #a855f7 50%, #7e22ce 100%);
+            box-shadow: 0 0 26px rgba(168, 85, 247, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+        }
+
+        /* Custom sleek scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27273a;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9333ea;
+        }
+    </style>
+</head>
+<body class="bg-obsidian bg-grid font-sans antialiased selection:bg-purple-600 selection:text-white min-h-screen flex flex-col">
+
+    <!-- Ambient Background Glow Orbs -->
+    <div class="fixed top-[-12%] left-[-10%] w-[45vw] h-[45vw] rounded-full bg-purple-900/20 blur-[130px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-12%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-fuchsia-900/15 blur-[130px] pointer-events-none z-0"></div>
+
+    <!-- ========================================================= -->
+    <!-- 1. STICKY NAVIGATION BAR                                  -->
+    <!-- ========================================================= -->
+    <header class="sticky top-0 z-40 backdrop-blur-lg bg-obsidian/85 border-b border-purple-500/20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <!-- Brand Logo: daablu -->
+            <a href="#" class="flex items-center gap-2.5 group">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center shadow-lg shadow-purple-600/35 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-cube text-white text-sm"></i>
+                </div>
+                <div class="flex flex-col leading-none">
+                    <span class="font-extrabold text-lg tracking-tight text-white">daablu</span>
+                    <span class="font-mono text-[10px] text-purple-400 tracking-wider uppercase">Datapacks</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-5 text-sm font-medium text-zinc-300" aria-label="Main Navigation">
+                <a href="#projects" class="hover:text-purple-400 transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-box-archive text-xs text-purple-400"></i>
+                    <span>Datapacks</span>
+                </a>
+                <a href="#guides" class="hover:text-purple-400 transition-colors">Guides</a>
+                <a href="#devlogs" class="hover:text-purple-400 transition-colors">Devlogs</a>
+                <a href="#faq" class="hover:text-purple-400 transition-colors">FAQ</a>
+                <a href="#about" onclick="openLegalModal('about'); return false;" class="hover:text-purple-400 transition-colors">About</a>
+                <a href="#contact" onclick="openLegalModal('contact'); return false;" class="hover:text-purple-400 transition-colors">Contact</a>
+                <button type="button" onclick="openUploadModal()" class="hover:text-purple-400 transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-lock text-xs text-purple-400"></i>
+                    <span>Creator Upload</span>
+                </button>
+            </nav>
+
+            <!-- Right Actions: Join Discord + Mobile Menu Button -->
+            <div class="flex items-center gap-2.5">
+                <a href="https://discord.gg/SxaRvKxz9u" target="_blank" rel="noopener noreferrer"
+                   class="purple-glow-btn text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-xl flex items-center gap-2">
+                    <i class="fa-brands fa-discord text-base"></i>
+                    <span>Join Discord</span>
+                </a>
+                <button id="mobile-menu-toggle" type="button" aria-label="Toggle Menu"
+                        class="md:hidden p-2.5 rounded-xl bg-surface border border-purple-500/25 text-zinc-300 hover:text-white">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-surface/95 backdrop-blur-lg border-b border-purple-500/20 px-4 py-3 space-y-1.5">
+            <a href="#projects" onclick="toggleMobileMenu(false)" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-zinc-200 hover:bg-purple-500/15 hover:text-purple-300 text-sm font-medium">
+                <i class="fa-solid fa-box-archive text-purple-400"></i>
+                <span>Datapacks</span>
+            </a>
+            <a href="#guides" onclick="toggleMobileMenu(false)" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-zinc-200 hover:bg-purple-500/15 hover:text-purple-300 text-sm font-medium">
+                <i class="fa-solid fa-book-open text-purple-400"></i>
+                <span>Installation Guides</span>
+            </a>
+            <a href="#devlogs" onclick="toggleMobileMenu(false)" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-zinc-200 hover:bg-purple-500/15 hover:text-purple-300 text-sm font-medium">
+                <i class="fa-solid fa-microchip text-purple-400"></i>
+                <span>Technical Devlogs</span>
+            </a>
+            <a href="#faq" onclick="toggleMobileMenu(false)" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-zinc-200 hover:bg-purple-500/15 hover:text-purple-300 text-sm font-medium">
+                <i class="fa-solid fa-circle-question text-purple-400"></i>
+                <span>FAQ</span>
+            </a>
+            <div class="grid grid-cols-2 gap-1.5 pt-1">
+                <a href="#about" onclick="toggleMobileMenu(false); openLegalModal('about'); return false;" class="px-3 py-2 rounded-xl bg-panel text-zinc-300 hover:text-purple-300 text-xs font-medium text-center">About Us</a>
+                <a href="#contact" onclick="toggleMobileMenu(false); openLegalModal('contact'); return false;" class="px-3 py-2 rounded-xl bg-panel text-zinc-300 hover:text-purple-300 text-xs font-medium text-center">Contact Us</a>
+            </div>
+            <button type="button" onclick="toggleMobileMenu(false); openUploadModal();" class="w-full text-left flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-zinc-200 hover:bg-purple-500/15 hover:text-purple-300 text-sm font-medium">
+                <i class="fa-solid fa-lock text-purple-400"></i>
+                <span>Creator Upload (daablu)</span>
+            </button>
+            <a href="https://discord.gg/SxaRvKxz9u" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-purple-300 bg-purple-600/15 border border-purple-500/30 text-sm font-semibold">
+                <i class="fa-brands fa-discord"></i>
+                <span>Join Discord Server</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Page Wrapper -->
+    <main class="relative z-10 flex-1">
+
+        <!-- ========================================================= -->
+        <!-- 2. HERO SECTION                                           -->
+        <!-- ========================================================= -->
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-12 md:pt-20 md:pb-16 text-center">
+            <div class="max-w-3xl mx-auto flex flex-col items-center">
+                <!-- Creator Subtitle Pill -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface border border-purple-500/30 text-xs font-mono text-purple-300 mb-6">
+                    <i class="fa-solid fa-code text-purple-400"></i>
+                    <span>Official Minecraft Java Datapack Hub</span>
+                </div>
+
+                <!-- Bold Headline -->
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-[1.1] mb-5">
+                    Custom Worlds &amp; Challenges by
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-purple-500">daablu</span>
+                </h1>
+
+                <!-- Creator Bio -->
+                <p class="text-zinc-400 text-base sm:text-lg max-w-2xl leading-relaxed mb-8">
+                    Download unique, lag-free <span class="text-zinc-200 font-medium">Minecraft Java Datapacks</span> built for hardcore survival, worldgen twists, and YouTube challenges. Free direct downloads—updated regularly.
+                </p>
+
+                <!-- Static, Completely Non-Clickable Purple "Welcome" Badge -->
+                <div class="mb-7">
+                    <span class="welcome-static-badge inline-flex items-center gap-2.5 px-8 py-3.5 rounded-2xl text-white font-extrabold text-base sm:text-lg tracking-wide cursor-default select-none pointer-events-none">
+                        <i class="fa-solid fa-sparkles text-purple-200"></i>
+                        <span>Welcome</span>
+                    </span>
+                </div>
+
+                <!-- Action Buttons Below Welcome: Scroll to Projects + Join Discord -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto">
+                    <a href="#projects"
+                       class="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-surface hover:bg-panel text-white font-semibold text-sm sm:text-base border border-purple-500/40 hover:border-purple-400 transition-all flex items-center justify-center gap-2.5 shadow-lg shadow-purple-950/40">
+                        <i class="fa-solid fa-arrow-down text-purple-400"></i>
+                        <span>View Projects / Datapacks</span>
+                    </a>
+                    <a href="https://discord.gg/SxaRvKxz9u" target="_blank" rel="noopener noreferrer"
+                       class="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-[#5865F2]/15 hover:bg-[#5865F2]/25 text-indigo-200 hover:text-white font-semibold text-sm sm:text-base border border-[#5865F2]/40 transition-all flex items-center justify-center gap-2.5">
+                        <i class="fa-brands fa-discord text-[#7984f5] text-lg"></i>
+                        <span>Join Discord</span>
+                    </a>
+                </div>
+
+                <!-- Hub Quick Stats -->
+                <div class="grid grid-cols-3 gap-4 sm:gap-8 mt-10 pt-6 border-t border-purple-500/15 w-full max-w-lg">
+                    <div>
+                        <div id="stat-pack-count" class="text-xl sm:text-2xl font-extrabold text-white">2</div>
+                        <div class="text-xs text-zinc-400">Datapacks</div>
+                    </div>
+                    <div>
+                        <div id="stat-total-downloads" class="text-xl sm:text-2xl font-extrabold text-purple-400">0</div>
+                        <div class="text-xs text-zinc-400">Downloads</div>
+                    </div>
+                    <div>
+                        <div class="text-xl sm:text-2xl font-extrabold text-white">1.20–26.3+</div>
+                        <div class="text-xs text-zinc-400">Java Editions</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- 3. AD SLOT #1 — LABEL / BANNER AD (MAIN PAGE)             -->
+        <!-- Policy-Safe: Clear 'Advertisement' label, spaced from CTA -->
+        <!-- ========================================================= -->
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 my-10" aria-label="Advertisement">
+            <div class="glass-card rounded-2xl p-3 sm:p-4">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500 flex items-center gap-1.5">
+                        <i class="fa-solid fa-rectangle-ad text-purple-500/70"></i>
+                        Advertisement
+                    </span>
+                </div>
+
+                <!-- === AD SLOT 1: LABEL / BANNER AD — PASTE YOUR ADSENSE CODE BELOW === -->
+                <div id="ad-slot-banner" class="w-full min-h-[90px] sm:min-h-[100px] rounded-xl bg-obsidian/80 border border-dashed border-purple-500/30 flex flex-col items-center justify-center text-center p-4">
+                    <span class="text-xs sm:text-sm font-semibold text-purple-300/90">Advertisement Slot (AdSense Ready)</span>
+                    <span class="text-[11px] font-mono text-zinc-500 mt-1">Responsive Display Banner • 728×90 / Mobile 320×100</span>
+                </div>
+                <!-- === END AD SLOT 1 === -->
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- 4. DATAPACKS SHOWCASE SECTION (#projects)                 -->
+        <!-- ========================================================= -->
+        <section id="projects" class="max-w-6xl mx-auto px-4 sm:px-6 py-8 md:py-12 scroll-mt-20">
+            <!-- Section Header + Search + Category Filter Tabs -->
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-5 mb-8">
+                <div>
+                    <span class="text-purple-400 font-mono text-xs uppercase tracking-widest font-semibold">Modrinth-Style Library</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">daablu's Datapacks</h2>
+                    <p class="text-zinc-400 text-sm mt-1.5">Browse, inspect features, and download official `.zip` datapacks.</p>
+                </div>
+
+                <!-- Search & Filter Controls -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto">
+                    <!-- Search Input -->
+                    <div class="relative flex-1 sm:w-64">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-xs"></i>
+                        <input id="search-input" type="text" placeholder="Search datapacks..."
+                               class="w-full pl-9 pr-4 py-2.5 rounded-xl bg-surface border border-purple-500/25 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-purple-400 transition-colors">
+                    </div>
+
+                    <!-- Filter Tabs -->
+                    <div id="filter-tabs" class="flex items-center gap-1.5 bg-surface p-1 rounded-xl border border-purple-500/20 overflow-x-auto">
+                        <button type="button" data-filter="All"
+                                class="filter-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-purple-600 text-white shadow transition-all whitespace-nowrap">
+                            All
+                        </button>
+                        <button type="button" data-filter="Worldgen"
+                                class="filter-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold text-zinc-400 hover:text-white transition-all whitespace-nowrap">
+                            Worldgen
+                        </button>
+                        <button type="button" data-filter="Challenge"
+                                class="filter-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold text-zinc-400 hover:text-white transition-all whitespace-nowrap">
+                            Challenge
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datapacks Grid (Rendered Dynamically by JS) -->
+            <div id="datapacks-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Cards injected here -->
+            </div>
+
+            <!-- Empty Search State -->
+            <div id="empty-state" class="hidden text-center py-14 glass-card rounded-3xl mt-4">
+                <i class="fa-solid fa-box-open text-3xl text-purple-400/70 mb-3"></i>
+                <p class="text-zinc-300 font-semibold">No datapacks matched your search.</p>
+                <p class="text-zinc-500 text-xs mt-1">Try clearing the search bar or switching to "All".</p>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- 5. HIGH-VALUE CONTENT: INSTALLATION & OPTIMIZATION GUIDE  -->
+        <!-- ========================================================= -->
+        <section id="guides" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-14 scroll-mt-20">
+            <div class="mb-7">
+                <span class="text-purple-400 font-mono text-xs uppercase tracking-widest font-semibold">Documentation</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Complete Datapack Installation &amp; Optimization Guide</h2>
+                <p class="text-zinc-400 text-sm sm:text-base mt-2 max-w-3xl">
+                    Follow these step-by-step instructions to install Minecraft Java datapacks correctly on desktop PC, dedicated multiplayer servers, or Android mobile launchers without corrupting your world.
+                </p>
+            </div>
+
+            <!-- Interactive Guide Tabs -->
+            <div class="glass-card rounded-3xl p-5 sm:p-8">
+                <div class="flex flex-wrap gap-2 pb-5 mb-6 border-b border-purple-500/20" role="tablist">
+                    <button type="button" data-guide="pc" onclick="switchGuideTab('pc')"
+                            class="guide-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-purple-600 text-white shadow flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-desktop"></i>
+                        <span>Java PC &amp; Servers</span>
+                    </button>
+                    <button type="button" data-guide="mobile" onclick="switchGuideTab('mobile')"
+                            class="guide-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-panel text-zinc-400 hover:text-white flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                        <span>Mobile (Pojav / Mojo)</span>
+                    </button>
+                    <button type="button" data-guide="troubleshoot" onclick="switchGuideTab('troubleshoot')"
+                            class="guide-tab px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-panel text-zinc-400 hover:text-white flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-wrench"></i>
+                        <span>Troubleshooting &amp; FPS</span>
+                    </button>
+                </div>
+
+                <!-- Tab 1: PC & Servers -->
+                <div id="guide-panel-pc" class="guide-panel grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-obsidian/70 border border-purple-500/20 rounded-2xl p-5">
+                        <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-lg bg-purple-600/25 text-purple-300 flex items-center justify-center text-xs"><i class="fa-solid fa-user"></i></span>
+                            Singleplayer (New &amp; Existing Worlds)
+                        </h3>
+                        <ol class="list-decimal list-inside space-y-2.5 text-sm text-zinc-300 leading-relaxed">
+                            <li>Download the datapack <code class="text-purple-300 font-mono">.zip</code> file from this hub. Keep it compressed—<strong>do not extract</strong> the zip archive.</li>
+                            <li><strong>For Worldgen Packs (like One Block Wide World):</strong> You <em>must</em> apply the pack during world creation. Click <strong>Singleplayer → Create New World → More → Data Packs</strong>, drag the zip into the window, move it to <strong>Selected</strong>, and click <strong>Done</strong>.</li>
+                            <li><strong>For Gameplay/Challenge Packs (like Can't Breathe Air):</strong> Open <code class="text-purple-300 font-mono">%appdata%\.minecraft\saves\&lt;WorldName&gt;\datapacks</code> and paste the zip file inside.</li>
+                            <li>Launch the world and type <code class="text-purple-300 font-mono">/reload</code> in chat. Verify active packs using <code class="text-purple-300 font-mono">/datapack list enabled</code>.</li>
+                        </ol>
+                    </div>
+                    <div class="bg-obsidian/70 border border-purple-500/20 rounded-2xl p-5">
+                        <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-lg bg-purple-600/25 text-purple-300 flex items-center justify-center text-xs"><i class="fa-solid fa-server"></i></span>
+                            Multiplayer Servers (Vanilla, Paper, Fabric)
+                        </h3>
+                        <ol class="list-decimal list-inside space-y-2.5 text-sm text-zinc-300 leading-relaxed">
+                            <li>Stop your Minecraft server cleanly before uploading worldgen packs to avoid chunk corruption.</li>
+                            <li>Open your server files (via SFTP, Aternos, or hosting panel) and navigate to <code class="text-purple-300 font-mono">/world/datapacks/</code>.</li>
+                            <li>Upload the <code class="text-purple-300 font-mono">.zip</code> file directly into the <code class="text-purple-300 font-mono">datapacks</code> folder.</li>
+                            <li>For worldgen packs, delete the existing <code class="text-purple-300 font-mono">region</code> and <code class="text-purple-300 font-mono">DIM-1</code> folders (or generate a fresh world folder) so custom noise settings apply to spawn chunks.</li>
+                            <li>Start the server and run <code class="text-purple-300 font-mono">datapack list</code> in the server console to confirm load status.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Mobile (PojavLauncher / Mojo Launcher) -->
+                <div id="guide-panel-mobile" class="guide-panel hidden space-y-4">
+                    <div class="bg-obsidian/70 border border-purple-500/20 rounded-2xl p-5">
+                        <h3 class="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                            <i class="fa-brands fa-android text-purple-400"></i>
+                            Installing on Android (PojavLauncher &amp; Mojo Launcher)
+                        </h3>
+                        <p class="text-sm text-zinc-300 leading-relaxed mb-4">
+                            Because PojavLauncher and Mojo Launcher run genuine Minecraft Java Edition on Android, all of daablu's datapacks work seamlessly on mobile devices without needing Forge or Fabric.
+                        </p>
+                        <ol class="list-decimal list-inside space-y-2.5 text-sm text-zinc-300 leading-relaxed">
+                            <li>Download the desired <code class="text-purple-300 font-mono">.zip</code> datapack into your phone's <code class="text-purple-300 font-mono">Downloads</code> folder.</li>
+                            <li>Open a file manager with Android/data access (such as ZArchiver) and copy the <code class="text-purple-300 font-mono">.zip</code> file.</li>
+                            <li>Navigate to <code class="text-purple-300 font-mono">Android/data/net.kdt.pojavlaunch/files/.minecraft/saves/&lt;YourWorld&gt;/datapacks/</code> (or your Mojo Launcher instance's <code class="text-purple-300 font-mono">.minecraft</code> directory).</li>
+                            <li>For a brand-new worldgen world, launch Minecraft inside Pojav/Mojo, tap <strong>Create New World → More → Data Packs → Open Pack Folder</strong>, or copy the zip during world setup.</li>
+                            <li><strong>Mobile FPS Tip:</strong> Set Render Distance to 6–8 chunks and run <code class="text-purple-300 font-mono">/function oneblockwide:toggle_fps</code> when playing One Block Wide World to keep entity counts ultra-low.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Troubleshooting -->
+                <div id="guide-panel-troubleshoot" class="guide-panel hidden grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <div class="bg-obsidian/70 border border-purple-500/20 rounded-2xl p-5">
+                        <h3 class="text-base font-bold text-purple-300 mb-2">1. "Incompatible Version" Red Warning</h3>
+                        <p class="text-sm text-zinc-300 leading-relaxed">
+                            Minecraft checks <code class="text-purple-300 font-mono">pack_format</code> inside <code class="text-purple-300 font-mono">pack.mcmeta</code>. Our packs include multi-version overlays (for 1.20.x, 1.21.11, and 26.3+), so if a minor snapshot shows a yellow/red warning, click <strong>Proceed</strong>—the internal overlays automatically load the matching syntax.
+                        </p>
+                    </div>
+                    <div class="bg-obsidian/70 border border-purple-500/20 rounded-2xl p-5">
+                        <h3 class="text-base font-bold text-purple-300 mb-2">2. Datapack Not Showing in List</h3>
+                        <p class="text-sm text-zinc-300 leading-relaxed">
+                            This almost always happens because the file was extracted and re-zipped into a <strong>nested folder</strong> (e.g., <code class="text-purple-300 font-mono">pack.zip/pack/pack.mcmeta</code>). Ensure <code class="text-purple-300 font-mono">pack.mcmeta</code> and the <code class="text-purple-300 font-mono">data/</code> folder sit directly at the root of the zip.
+                        </p>
+                    </div>
+                    <div class="bg-obsidian/70 border border-purple-500/20 rounded-2xl p-5">
+                        <h3 class="text-base font-bold text-purple-300 mb-2">3. Worldgen Didn't Change After /reload</h3>
+                        <p class="text-sm text-zinc-300 leading-relaxed">
+                            Minecraft only reads custom <code class="text-purple-300 font-mono">worldgen/noise_settings</code> when a world is first created. Running <code class="text-purple-300 font-mono">/reload</code> updates functions and HUD loops, but custom terrain requires starting a fresh world with the pack enabled from the beginning.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- 6. HIGH-VALUE CONTENT: TECHNICAL DEVLOGS / BREAKDOWN      -->
+        <!-- ========================================================= -->
+        <section id="devlogs" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-14 scroll-mt-20">
+            <div class="mb-7">
+                <span class="text-purple-400 font-mono text-xs uppercase tracking-widest font-semibold">Engineering Notes</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">How Our Datapacks Work – Technical Breakdown</h2>
+                <p class="text-zinc-400 text-sm sm:text-base mt-2 max-w-3xl">
+                    A behind-the-scenes look at the Minecraft JSON density functions, tick optimization strategies, and custom HUD architecture powering daablu's datapacks.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Devlog Article 1: One Block Wide World -->
+                <article class="glass-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 text-xs font-mono text-purple-300 mb-3">
+                            <span class="px-2.5 py-1 rounded-lg bg-purple-500/15 border border-purple-500/30">Worldgen Architecture</span>
+                            <span class="text-zinc-500">• 50 JSON &amp; mcfunction files</span>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-extrabold text-white mb-3">
+                            Inside One Block Wide World: Density Functions &amp; FPS Cleanup
+                        </h3>
+                        <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+                            Instead of using laggy command-block loops to delete terrain after chunks generate, <strong>One Block Wide World (FPS Optimized)</strong> overrides Minecraft's native <code class="text-purple-300 font-mono">overworld.json</code> and <code class="text-purple-300 font-mono">nether.json</code> noise settings directly at the world-generation stage.
+                        </p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                            Using custom noise axes (<code class="text-purple-300 font-mono">axis_a</code> and <code class="text-purple-300 font-mono">axis_b</code>) paired with mathematical density functions (<code class="text-purple-300 font-mono">g1x</code>, <code class="text-purple-300 font-mono">g1z</code>, <code class="text-purple-300 font-mono">f1</code>, <code class="text-purple-300 font-mono">f2</code>, and <code class="text-purple-300 font-mono">abs_det</code>), the pack computes a <code class="text-purple-300 font-mono">z_zero_indicator</code> mask. Every coordinate outside the single-block strip evaluates to air before a single block is placed—meaning zero wasted lighting updates and dramatically higher FPS.
+                        </p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">
+                            To guarantee complete survival progression, 16 structure sets (including villages, ocean monuments, ancient cities, and trial chambers) are re-aligned, while built-in functions (<code class="text-purple-300 font-mono">fps_cleanup.mcfunction</code>, <code class="text-purple-300 font-mono">toggle_fps.mcfunction</code>, and <code class="text-purple-300 font-mono">show_help.mcfunction</code>) let players manage stray void entities on demand.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-purple-500/15 flex items-center justify-between text-xs font-mono text-zinc-500">
+                        <span>Author: daablu</span>
+                        <span>Overlays: 1.21.11 &amp; 26.3</span>
+                    </div>
+                </article>
+
+                <!-- Devlog Article 2: Can't Breathe Air -->
+                <article class="glass-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 text-xs font-mono text-purple-300 mb-3">
+                            <span class="px-2.5 py-1 rounded-lg bg-purple-500/15 border border-purple-500/30">Gameplay Mechanics</span>
+                            <span class="text-zinc-500">• 15 JSON &amp; mcfunction files</span>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-extrabold text-white mb-3">
+                            Engineering Can't Breathe Air: Real-Time HUD &amp; Tick Detection
+                        </h3>
+                        <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+                            Flipping Minecraft's core breathing mechanic upside down requires precise per-player state tracking without hurting server TPS. <strong>Can't Breathe Air</strong> splits its execution cleanly across four modular functions: <code class="text-purple-300 font-mono">load</code>, <code class="text-purple-300 font-mono">tick</code>, <code class="text-purple-300 font-mono">player_tick</code>, and <code class="text-purple-300 font-mono">hud_display</code>.
+                        </p>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+                            On every game tick, <code class="text-purple-300 font-mono">player_tick.mcfunction</code> checks the block at each survival player's eye level. Whenever the player is exposed to open air instead of water, their custom scoreboard oxygen counter drains smoothly and triggers <code class="text-purple-300 font-mono">hud_display.mcfunction</code> to render a responsive live oxygen meter above the hotbar.
+                        </p>
+                        <p class="text-zinc-400 text-sm leading-relaxed">
+                            Once oxygen reaches zero, <code class="text-purple-300 font-mono">drown_damage.mcfunction</code> applies controlled suffocation ticks. Because Mojang renamed <code class="text-purple-300 font-mono">functions/</code> to <code class="text-purple-300 font-mono">function/</code> in Java 1.21, the archive ships dual-mapped directories so it works out of the box from 1.20 through 1.21+.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-purple-500/15 flex items-center justify-between text-xs font-mono text-zinc-500">
+                        <span>Author: daablu</span>
+                        <span>Zero External Mods Required</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- 7. HIGH-VALUE CONTENT: INTERACTIVE FAQ ACCORDION (#faq)   -->
+        <!-- ========================================================= -->
+        <section id="faq" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-14 scroll-mt-20">
+            <div class="mb-7">
+                <span class="text-purple-400 font-mono text-xs uppercase tracking-widest font-semibold">Help Center</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Frequently Asked Questions</h2>
+                <p class="text-zinc-400 text-sm sm:text-base mt-2">Quick answers about compatibility, safety, YouTube rights, and server performance.</p>
+            </div>
+
+            <div class="space-y-3" id="faq-accordion">
+                <!-- FAQ 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden">
+                    <button type="button" onclick="toggleFaq(this)" aria-expanded="false"
+                            class="w-full px-5 sm:px-6 py-4 text-left flex items-center justify-between gap-4 text-white font-semibold text-sm sm:text-base">
+                        <span>1. What is the difference between a Minecraft Datapack and a Mod?</span>
+                        <i class="fa-solid fa-chevron-down text-purple-400 text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer hidden px-5 sm:px-6 pb-5 text-sm text-zinc-300 leading-relaxed border-t border-purple-500/15 pt-3">
+                        A <strong>Datapack</strong> uses Minecraft Java's official built-in data system (JSON files and <code class="text-purple-300 font-mono">.mcfunction</code> scripts), meaning you do <strong>not</strong> need Forge, Fabric, or NeoForge installed. A <strong>Mod</strong> runs compiled Java bytecode (<code class="text-purple-300 font-mono">.jar</code>) and requires a mod loader. On multiplayer servers, only the server needs the datapack—players can join with a 100% vanilla client.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden">
+                    <button type="button" onclick="toggleFaq(this)" aria-expanded="false"
+                            class="w-full px-5 sm:px-6 py-4 text-left flex items-center justify-between gap-4 text-white font-semibold text-sm sm:text-base">
+                        <span>2. Can I use daablu's datapacks in monetized YouTube videos or livestreams?</span>
+                        <i class="fa-solid fa-chevron-down text-purple-400 text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer hidden px-5 sm:px-6 pb-5 text-sm text-zinc-300 leading-relaxed border-t border-purple-500/15 pt-3">
+                        Yes! You are completely welcome to record, stream, and monetize gameplay featuring any datapack from this hub on YouTube, Twitch, or Shorts. All we ask is that you credit <strong>daablu</strong> and include a direct link back to this website in your video description rather than re-uploading the <code class="text-purple-300 font-mono">.zip</code> file to third-party file hosts.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden">
+                    <button type="button" onclick="toggleFaq(this)" aria-expanded="false"
+                            class="w-full px-5 sm:px-6 py-4 text-left flex items-center justify-between gap-4 text-white font-semibold text-sm sm:text-base">
+                        <span>3. Will these datapacks reduce my FPS or cause server lag?</span>
+                        <i class="fa-solid fa-chevron-down text-purple-400 text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer hidden px-5 sm:px-6 pb-5 text-sm text-zinc-300 leading-relaxed border-t border-purple-500/15 pt-3">
+                        Performance is our #1 priority. Every pack is profiled for low MSPT (milliseconds per tick) by avoiding heavy <code class="text-purple-300 font-mono">@e</code> entity selectors and using native worldgen JSON wherever possible. In fact, <strong>One Block Wide World</strong> often runs at <em>higher</em> FPS than vanilla worlds because far fewer blocks are rendered and lit, plus it includes a dedicated <code class="text-purple-300 font-mono">fps_cleanup</code> routine.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="glass-card rounded-2xl overflow-hidden">
+                    <button type="button" onclick="toggleFaq(this)" aria-expanded="false"
+                            class="w-full px-5 sm:px-6 py-4 text-left flex items-center justify-between gap-4 text-white font-semibold text-sm sm:text-base">
+                        <span>4. Are the .zip datapack downloads completely safe?</span>
+                        <i class="fa-solid fa-chevron-down text-purple-400 text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer hidden px-5 sm:px-6 pb-5 text-sm text-zinc-300 leading-relaxed border-t border-purple-500/15 pt-3">
+                        100% safe. Unlike executable mods or installers, Minecraft datapacks contain only plain-text <code class="text-purple-300 font-mono">.json</code> and <code class="text-purple-300 font-mono">.mcfunction</code> files. They cannot run system commands, install software, or access files outside Minecraft. You can inspect every single file inside our archives using any text editor before loading them.
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="glass-card rounded-2xl overflow-hidden">
+                    <button type="button" onclick="toggleFaq(this)" aria-expanded="false"
+                            class="w-full px-5 sm:px-6 py-4 text-left flex items-center justify-between gap-4 text-white font-semibold text-sm sm:text-base">
+                        <span>5. Which Minecraft versions are supported (and does Bedrock work)?</span>
+                        <i class="fa-solid fa-chevron-down text-purple-400 text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer hidden px-5 sm:px-6 pb-5 text-sm text-zinc-300 leading-relaxed border-t border-purple-500/15 pt-3">
+                        All datapacks on this hub are built specifically for <strong>Minecraft: Java Edition</strong> (covering versions 1.20 through 1.21.11 and 26.3+ via built-in version overlays). They work on PC, Mac, Linux, and Android via PojavLauncher or Mojo Launcher. Minecraft Bedrock Edition (PE/Console) uses Behavior Packs (<code class="text-purple-300 font-mono">.mcpack</code>), which are not compatible with Java datapacks.
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="glass-card rounded-2xl overflow-hidden">
+                    <button type="button" onclick="toggleFaq(this)" aria-expanded="false"
+                            class="w-full px-5 sm:px-6 py-4 text-left flex items-center justify-between gap-4 text-white font-semibold text-sm sm:text-base">
+                        <span>6. How can I request a custom challenge idea or report a bug?</span>
+                        <i class="fa-solid fa-chevron-down text-purple-400 text-xs transition-transform duration-200"></i>
+                    </button>
+                    <div class="faq-answer hidden px-5 sm:px-6 pb-5 text-sm text-zinc-300 leading-relaxed border-t border-purple-500/15 pt-3">
+                        You can share challenge ideas, report bugs, or request updates directly on our <a href="https://discord.gg/SxaRvKxz9u" target="_blank" rel="noopener noreferrer" class="text-purple-400 underline hover:text-purple-300">Discord Server</a> or through the <a href="#contact" onclick="openLegalModal('contact'); return false;" class="text-purple-400 underline hover:text-purple-300">Contact Us</a> page. Include your Minecraft version and any console error message so we can fix it fast.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- 8. DISCORD COMMUNITY SECTION                              -->
+        <!-- ========================================================= -->
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#171026] via-[#100d1b] to-[#0f0f14] border border-purple-500/35 p-7 sm:p-10 md:p-12 shadow-2xl shadow-purple-950/30">
+                <!-- Decorative Glow -->
+                <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-purple-600/20 blur-[90px] pointer-events-none"></div>
+
+                <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+                    <div class="max-w-xl">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/15 border border-purple-500/30 text-purple-300 text-xs font-mono mb-4">
+                            <i class="fa-brands fa-discord"></i>
+                            <span>daablu Community</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+                            Need a Custom Datapack or YouTube Challenge?
+                        </h2>
+                        <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+                            Join <strong class="text-white">daablu's Discord server</strong> for custom datapack requests, YouTube challenge ideas, early beta drops, bug reports, and instant update notifications.
+                        </p>
+                    </div>
+
+                    <div class="shrink-0 w-full md:w-auto">
+                        <a href="https://discord.gg/SxaRvKxz9u" target="_blank" rel="noopener noreferrer"
+                           class="purple-glow-btn w-full md:w-auto px-8 py-4 rounded-2xl text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3">
+                            <i class="fa-brands fa-discord text-xl"></i>
+                            <span>Join Discord</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- FOOTER (STRUCTURED FOR ADSENSE TRUST & LEGAL LINKS)       -->
+    <!-- ========================================================= -->
+    <footer class="relative z-10 border-t border-purple-500/20 bg-obsidian/95 pt-10 pb-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-purple-500/15">
+                <!-- Column 1: Brand & Official Minecraft Disclaimer -->
+                <div class="md:col-span-2 space-y-3">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center">
+                            <i class="fa-solid fa-cube text-white text-xs"></i>
+                        </div>
+                        <span class="font-extrabold text-lg text-white">daablu</span>
+                        <span class="font-mono text-[10px] text-purple-400 uppercase tracking-wider">Datapack Hub</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-md">
+                        Free, lag-free Minecraft Java datapacks crafted for survival challenges, custom worldgen, and content creators.
+                    </p>
+                    <p class="text-[11px] font-mono text-zinc-500 leading-relaxed max-w-md">
+                        NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
+                    </p>
+                </div>
+
+                <!-- Column 2: Explore -->
+                <div>
+                    <h4 class="text-xs font-mono uppercase tracking-wider text-purple-400 font-semibold mb-3">Explore</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-zinc-400">
+                        <li><a href="#projects" class="hover:text-purple-300 transition-colors">Datapacks Library</a></li>
+                        <li><a href="#guides" class="hover:text-purple-300 transition-colors">Installation Guides</a></li>
+                        <li><a href="#devlogs" class="hover:text-purple-300 transition-colors">Technical Devlogs</a></li>
+                        <li><a href="#faq" class="hover:text-purple-300 transition-colors">FAQ</a></li>
+                        <li><button type="button" onclick="openUploadModal()" class="hover:text-purple-300 transition-colors">Creator Upload</button></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Legal & Trust (AdSense Required Pages) -->
+                <div>
+                    <h4 class="text-xs font-mono uppercase tracking-wider text-purple-400 font-semibold mb-3">Legal &amp; Trust</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-zinc-400">
+                        <li><a href="#about" onclick="openLegalModal('about'); return false;" class="hover:text-purple-300 transition-colors">About Us</a></li>
+                        <li><a href="#contact" onclick="openLegalModal('contact'); return false;" class="hover:text-purple-300 transition-colors">Contact Us</a></li>
+                        <li><a href="#privacy-policy" onclick="openLegalModal('privacy-policy'); return false;" class="hover:text-purple-300 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#terms" onclick="openLegalModal('terms'); return false;" class="hover:text-purple-300 transition-colors">Terms &amp; Conditions</a></li>
+                        <li><a href="#disclaimer" onclick="openLegalModal('disclaimer'); return false;" class="hover:text-purple-300 transition-colors">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-zinc-500">
+                <div>© 2026 <span class="text-purple-400 font-semibold">daablu</span>. All rights reserved.</div>
+                <div class="flex items-center gap-4">
+                    <a href="mailto:contact.daablu@gmail.com" class="hover:text-purple-300 transition-colors">contact.daablu@gmail.com</a>
+                    <span>•</span>
+                    <a href="https://discord.gg/SxaRvKxz9u" target="_blank" rel="noopener noreferrer" class="hover:text-purple-300 transition-colors">Discord</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================================= -->
+    <!-- MODAL 1: DATAPACK DETAILS & INSTALLATION GUIDE            -->
+    <!-- ========================================================= -->
+    <div id="details-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="bg-surface border border-purple-500/40 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl shadow-purple-950/60 relative max-h-[90vh] overflow-y-auto">
+            <button type="button" onclick="closeDetailsModal()" aria-label="Close Details"
+                    class="absolute top-5 right-5 w-9 h-9 rounded-xl bg-panel hover:bg-purple-600/30 text-zinc-300 hover:text-white flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex flex-wrap items-center gap-2 mb-3">
+                <span id="detail-category" class="px-3 py-1 rounded-full bg-purple-500/20 border border-purple-500/30 text-purple-300 text-xs font-semibold"></span>
+                <span id="detail-version" class="px-3 py-1 rounded-full bg-panel border border-zinc-700 text-zinc-300 font-mono text-xs"></span>
+                <span id="detail-meta" class="px-3 py-1 rounded-full bg-panel border border-zinc-700 text-zinc-400 font-mono text-xs"></span>
+            </div>
+
+            <h3 id="detail-title" class="text-2xl sm:text-3xl font-extrabold text-white mb-3"></h3>
+            <p id="detail-desc" class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6"></p>
+
+            <!-- Features List -->
+            <div class="mb-6">
+                <h4 class="text-xs font-mono uppercase tracking-wider text-purple-400 font-semibold mb-3">Key Features</h4>
+                <ul id="detail-features" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm text-zinc-200"></ul>
+            </div>
+
+            <!-- Installation Steps -->
+            <div class="bg-obsidian/90 border border-purple-500/20 rounded-2xl p-4 sm:p-5 mb-6">
+                <h4 class="text-xs font-mono uppercase tracking-wider text-purple-300 font-semibold mb-2.5 flex items-center gap-2">
+                    <i class="fa-solid fa-terminal"></i>
+                    <span>How to Install (Minecraft Java)</span>
+                </h4>
+                <ol class="list-decimal list-inside space-y-1.5 text-xs sm:text-sm text-zinc-300">
+                    <li>Download the <code class="text-purple-300 font-mono">.zip</code> file below (do <strong>not</strong> unzip it).</li>
+                    <li>Open Minecraft Java → <strong>Create New World</strong> → <strong>More</strong> → <strong>Data Packs</strong> (or place inside <code class="text-purple-300 font-mono">saves/&lt;world&gt;/datapacks</code>).</li>
+                    <li>Drag &amp; drop the zip file, move it to the <strong>Selected</strong> column, and click <strong>Done</strong>.</li>
+                    <li>In an existing world, run <code class="text-purple-300 font-mono">/reload</code> in chat.</li>
+                </ol>
+            </div>
+
+            <!-- Footer CTA inside Details Modal -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-purple-500/15">
+                <span id="detail-filename" class="font-mono text-xs text-zinc-400 truncate max-w-full"></span>
+                <button id="detail-download-btn" type="button"
+                        class="w-full sm:w-auto purple-glow-btn text-white font-semibold px-6 py-3 rounded-xl text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Download Datapack</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- MODAL 2: MODRINTH / CURSEFORGE-STYLE DOWNLOAD & AD MODAL  -->
+    <!-- ========================================================= -->
+    <div id="download-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+        <div class="bg-surface border border-purple-500/45 rounded-3xl max-w-lg w-full p-6 sm:p-7 shadow-2xl shadow-purple-950/70 relative max-h-[92vh] overflow-y-auto">
+            <button type="button" onclick="closeDownloadModal()" aria-label="Close Download Modal"
+                    class="absolute top-5 right-5 w-9 h-9 rounded-xl bg-panel hover:bg-purple-600/30 text-zinc-300 hover:text-white flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Pack Header Info -->
+            <div class="flex items-center gap-3.5 mb-5 pr-8">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-800 flex items-center justify-center text-white text-lg shrink-0 shadow-lg shadow-purple-600/30">
+                    <i class="fa-solid fa-file-zipper"></i>
+                </div>
+                <div class="min-w-0">
+                    <h3 id="dl-pack-title" class="text-lg sm:text-xl font-extrabold text-white truncate"></h3>
+                    <div class="flex flex-wrap items-center gap-2 text-xs font-mono text-zinc-400 mt-0.5">
+                        <span id="dl-pack-version" class="text-purple-300"></span>
+                        <span>•</span>
+                        <span id="dl-pack-size"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Countdown Status & Animated Purple Progress Bar -->
+            <div class="bg-obsidian/90 border border-purple-500/20 rounded-2xl p-4 mb-5">
+                <div class="flex items-center justify-between text-xs sm:text-sm font-medium mb-2.5">
+                    <span id="dl-status-text" class="text-purple-300">Preparing your download in 5 seconds...</span>
+                    <span id="dl-timer-badge" class="font-mono font-bold text-white bg-purple-600/30 border border-purple-500/40 px-2 py-0.5 rounded-md">5s</span>
+                </div>
+                <div class="w-full h-2.5 bg-panel rounded-full overflow-hidden">
+                    <div id="dl-progress-bar" class="h-full bg-gradient-to-r from-purple-600 via-fuchsia-500 to-purple-400 rounded-full transition-all duration-1000 ease-linear" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <!-- AD SLOT #2: DOWNLOAD INTERSTITIAL AD (300x250 Responsive) -->
+            <div class="my-6">
+                <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-500">Advertisement</span>
+                </div>
+
+                <!-- === AD SLOT 2: DOWNLOAD INTERSTITIAL AD — PASTE YOUR ADSENSE CODE BELOW === -->
+                <div id="ad-slot-download" class="w-full max-w-[336px] min-h-[250px] mx-auto rounded-2xl bg-obsidian border border-dashed border-purple-500/35 flex flex-col items-center justify-center text-center p-5">
+                    <div class="w-11 h-11 rounded-xl bg-purple-600/15 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-3">
+                        <i class="fa-solid fa-rectangle-ad text-xl"></i>
+                    </div>
+                    <span class="text-sm font-bold text-purple-200">Advertisement Slot (AdSense Ready)</span>
+                    <span class="text-xs font-mono text-zinc-500 mt-1">300×250 Medium Rectangle</span>
+                </div>
+                <!-- === END AD SLOT 2 === -->
+            </div>
+
+            <!-- Action Download Button (Clearly spaced from Ad container) -->
+            <div class="pt-2">
+                <button id="dl-confirm-btn" type="button" disabled
+                        class="w-full purple-glow-btn text-white font-bold py-3.5 px-6 rounded-2xl text-sm sm:text-base flex items-center justify-center gap-2.5">
+                    <i class="fa-solid fa-hourglass-half" id="dl-btn-icon"></i>
+                    <span id="dl-btn-label">Please wait (5s)...</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- MODAL 3: CREATOR-ONLY UPLOAD PANEL (daablu Admin Modal)   -->
+    <!-- ========================================================= -->
+    <div id="upload-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+        <div class="bg-surface border border-purple-500/45 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl shadow-purple-950/70 relative max-h-[92vh] overflow-y-auto">
+            <button type="button" onclick="closeUploadModal()" aria-label="Close Creator Upload"
+                    class="absolute top-5 right-5 w-9 h-9 rounded-xl bg-panel hover:bg-purple-600/30 text-zinc-300 hover:text-white flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Header -->
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-purple-600/20 border border-purple-500/40 flex items-center justify-center text-purple-400">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-extrabold text-white">daablu Creator Panel</h3>
+                    <p class="text-xs text-zinc-400">Upload new Minecraft datapacks to your hub.</p>
+                </div>
+            </div>
+
+            <!-- STEP A: PIN Lock Screen -->
+            <div id="admin-lock-screen" class="space-y-4">
+                <div class="bg-obsidian/80 border border-purple-500/20 rounded-2xl p-4 text-xs sm:text-sm text-zinc-300">
+                    Enter your Creator PIN to unlock the datapack uploader.
+                </div>
+                <form id="pin-form" class="space-y-3">
+                    <div>
+                        <label for="creator-pin-input" class="block text-xs font-medium text-zinc-400 mb-1.5">Creator PIN</label>
+                        <input id="creator-pin-input" type="password" placeholder="Enter PIN..." required
+                               class="w-full px-4 py-3 rounded-xl bg-obsidian border border-purple-500/30 text-white text-sm font-mono focus:outline-none focus:border-purple-400">
+                    </div>
+                    <p id="pin-error" class="hidden text-xs text-rose-400 font-medium">Incorrect PIN. Please try again.</p>
+                    <button type="submit" class="w-full purple-glow-btn text-white font-bold py-3 rounded-xl text-sm flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-unlock-keyhole"></i>
+                        <span>Unlock Uploader</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- STEP B: Unlocked Datapack Uploader Form -->
+            <div id="admin-upload-panel" class="hidden space-y-5">
+                <form id="new-datapack-form" class="space-y-4">
+                    <!-- .ZIP File Picker -->
+                    <div>
+                        <label class="block text-xs font-medium text-zinc-300 mb-1.5">Select Datapack (.zip)</label>
+                        <label for="zip-file-input"
+                               class="flex flex-col items-center justify-center w-full p-5 rounded-2xl bg-obsidian/90 border border-dashed border-purple-500/40 hover:border-purple-400 cursor-pointer transition-colors text-center">
+                            <i class="fa-solid fa-cloud-arrow-up text-2xl text-purple-400 mb-2"></i>
+                            <span id="zip-file-label" class="text-xs sm:text-sm font-semibold text-zinc-200">Tap to choose a .zip datapack file</span>
+                            <span id="zip-file-meta" class="text-[11px] font-mono text-zinc-500 mt-1">Auto-detects filename &amp; size in KB</span>
+                            <input id="zip-file-input" type="file" accept=".zip" class="hidden">
+                        </label>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="up-title" class="block text-xs font-medium text-zinc-300 mb-1.5">Datapack Title *</label>
+                            <input id="up-title" type="text" required placeholder="e.g., Floor Is Lava Hardcore"
+                                   class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian border border-purple-500/25 text-white text-sm focus:outline-none focus:border-purple-400">
+                        </div>
+                        <div>
+                            <label for="up-version" class="block text-xs font-medium text-zinc-300 mb-1.5">Minecraft Version *</label>
+                            <input id="up-version" type="text" required value="1.21.4+" placeholder="e.g., 1.21+"
+                                   class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian border border-purple-500/25 text-white text-sm font-mono focus:outline-none focus:border-purple-400">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="up-category" class="block text-xs font-medium text-zinc-300 mb-1.5">Category *</label>
+                            <select id="up-category"
+                                    class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian border border-purple-500/25 text-white text-sm focus:outline-none focus:border-purple-400">
+                                <option value="Worldgen">Worldgen</option>
+                                <option value="Challenge" selected>Challenge</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="up-download-url" class="block text-xs font-medium text-zinc-300 mb-1.5">Download Path / URL (Optional)</label>
+                            <input id="up-download-url" type="text" placeholder="downloads/my_pack.zip"
+                                   class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian border border-purple-500/25 text-white text-sm font-mono focus:outline-none focus:border-purple-400">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="up-desc" class="block text-xs font-medium text-zinc-300 mb-1.5">Description *</label>
+                        <textarea id="up-desc" rows="2" required placeholder="Describe what your datapack does..."
+                                  class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian border border-purple-500/25 text-white text-sm focus:outline-none focus:border-purple-400"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="up-features" class="block text-xs font-medium text-zinc-300 mb-1.5">Features (comma separated)</label>
+                        <input id="up-features" type="text" placeholder="Custom Bossbar, Zero Lag, Multiplayer Ready"
+                               class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian border border-purple-500/25 text-white text-sm focus:outline-none focus:border-purple-400">
+                    </div>
+
+                    <button type="submit" class="w-full purple-glow-btn text-white font-bold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>Publish Datapack to Hub</span>
+                    </button>
+                </form>
+
+                <!-- Generated JSON Code Box for Permanent GitHub Pages Updates -->
+                <div id="generated-json-box" class="hidden bg-obsidian border border-purple-500/35 rounded-2xl p-4 space-y-2.5">
+                    <div class="flex items-center justify-between gap-2">
+                        <span class="text-xs font-mono text-emerald-400 font-semibold">
+                            <i class="fa-solid fa-circle-check mr-1"></i> Added live! Paste this JSON into index.html for all visitors:
+                        </span>
+                        <button type="button" onclick="copyGeneratedDatapackCode()"
+                                class="px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-xs font-semibold flex items-center gap-1.5 shrink-0">
+                            <i class="fa-regular fa-copy"></i>
+                            <span>Copy Datapack Code</span>
+                        </button>
+                    </div>
+                    <pre id="generated-json-code" class="text-[11px] font-mono text-purple-200 bg-panel p-3 rounded-xl overflow-x-auto max-h-48"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- MODAL 4: LEGAL & TRUST PAGES (ADSENSE COMPLIANCE)         -->
+    <!-- Deep-links: #about #contact #privacy-policy #terms #disclaimer -->
+    <!-- ========================================================= -->
+    <div id="legal-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+        <div class="bg-surface border border-purple-500/45 rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl shadow-purple-950/70 relative max-h-[90vh] flex flex-col">
+            <button type="button" onclick="closeLegalModal()" aria-label="Close Legal Page"
+                    class="absolute top-5 right-5 w-9 h-9 rounded-xl bg-panel hover:bg-purple-600/30 text-zinc-300 hover:text-white flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Legal Page Switcher Tabs -->
+            <div class="flex flex-wrap gap-1.5 pr-10 pb-4 mb-5 border-b border-purple-500/20">
+                <button type="button" data-legal="about" onclick="openLegalModal('about')" class="legal-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-panel text-zinc-300 hover:text-white transition-colors">About Us</button>
+                <button type="button" data-legal="privacy-policy" onclick="openLegalModal('privacy-policy')" class="legal-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-panel text-zinc-300 hover:text-white transition-colors">Privacy Policy</button>
+                <button type="button" data-legal="terms" onclick="openLegalModal('terms')" class="legal-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-panel text-zinc-300 hover:text-white transition-colors">Terms &amp; Conditions</button>
+                <button type="button" data-legal="disclaimer" onclick="openLegalModal('disclaimer')" class="legal-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-panel text-zinc-300 hover:text-white transition-colors">Disclaimer</button>
+                <button type="button" data-legal="contact" onclick="openLegalModal('contact')" class="legal-tab px-3 py-1.5 rounded-lg text-xs font-semibold bg-panel text-zinc-300 hover:text-white transition-colors">Contact Us</button>
+            </div>
+
+            <!-- Scrollable Content Body -->
+            <div class="overflow-y-auto pr-1 space-y-5 text-sm text-zinc-300 leading-relaxed">
+
+                <!-- PAGE 1: ABOUT US -->
+                <div id="legal-page-about" class="legal-page hidden space-y-4">
+                    <h3 class="text-2xl font-extrabold text-white">About daablu</h3>
+                    <p>
+                        Welcome to the official <strong>daablu Minecraft Datapack Hub</strong>. I am an independent Minecraft Java developer passionate about pushing the limits of vanilla Minecraft through custom world generation, density functions, and creative survival challenges.
+                    </p>
+                    <p>
+                        My mission is simple: build <strong>free, lightweight, lag-free datapacks</strong> that anyone—from casual singleplayer survivalists and PojavLauncher mobile players to YouTube creators—can drop straight into their game without complex mod loaders.
+                    </p>
+                    <div class="bg-obsidian/80 border border-purple-500/20 rounded-2xl p-4 space-y-2">
+                        <h4 class="text-purple-300 font-bold text-xs uppercase font-mono tracking-wider">What Makes daablu's Packs Different</h4>
+                        <ul class="list-disc list-inside space-y-1 text-zinc-300 text-xs sm:text-sm">
+                            <li>Clean, human-readable JSON &amp; <code class="text-purple-300 font-mono">.mcfunction</code> code with zero bloat.</li>
+                            <li>Built-in FPS optimizations and multi-version compatibility overlays.</li>
+                            <li>Detailed documentation, technical devlogs, and active Discord community support.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PAGE 2: PRIVACY POLICY (GOOGLE ADSENSE COMPLIANT) -->
+                <div id="legal-page-privacy-policy" class="legal-page hidden space-y-4">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <h3 class="text-2xl font-extrabold text-white">Privacy Policy</h3>
+                        <span class="text-xs font-mono text-zinc-500">Last Updated: November 2026</span>
+                    </div>
+                    <p>
+                        At <strong>daablu Datapack Hub</strong>, the privacy of our visitors is a top priority. This Privacy Policy explains what types of information are collected and recorded when you visit this website and how we use it.
+                    </p>
+
+                    <h4 class="text-white font-bold text-base">1. Log Files &amp; Local Storage</h4>
+                    <p>
+                        Like most standard websites, our hosting provider may collect standard log files including IP addresses, browser type, Internet Service Provider (ISP), date/time stamps, and referring pages for security and analytics. Additionally, this website uses browser <code class="text-purple-300 font-mono">localStorage</code> solely to remember your cookie consent preference and local download counter display.
+                    </p>
+
+                    <h4 class="text-white font-bold text-base">2. Cookies, Web Beacons &amp; Google DoubleClick DART Cookie</h4>
+                    <p>
+                        Google is a third-party vendor on this site. It uses cookies, known as <strong>DART cookies</strong>, to serve ads to visitors based on their visit to this site and other sites on the internet. Visitors may opt out of personalized advertising by visiting <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" class="text-purple-400 underline hover:text-purple-300">Google Ads Settings (https://adssettings.google.com)</a>.
+                    </p>
+
+                    <h4 class="text-white font-bold text-base">3. Third-Party Advertising Partners</h4>
+                    <p>
+                        Third-party ad servers or ad networks (such as Google AdSense) use technologies like cookies, JavaScript, or Web Beacons in their respective advertisements that appear on this site. They automatically receive your IP address when this occurs to measure advertising effectiveness and personalize ad content. <strong>daablu</strong> has no access to or control over these cookies used by third-party advertisers.
+                    </p>
+
+                    <h4 class="text-white font-bold text-base">4. GDPR &amp; CCPA Privacy Rights</h4>
+                    <p>
+                        Depending on your region (including EEA/UK under GDPR and California under CCPA), you have the right to request access to personal data collected about you, request correction or deletion of your data, and opt out of non-essential advertising cookies using our Cookie Consent Banner or browser settings.
+                    </p>
+
+                    <h4 class="text-white font-bold text-base">5. Children's Information</h4>
+                    <p>
+                        We do not knowingly collect any Personal Identifiable Information (PII) from children under the age of 13. If you believe your child has provided personal information via our contact channels, please email <a href="mailto:contact.daablu@gmail.com" class="text-purple-400 underline">contact.daablu@gmail.com</a> and we will promptly remove such information.
+                    </p>
+                </div>
+
+                <!-- PAGE 3: TERMS & CONDITIONS -->
+                <div id="legal-page-terms" class="legal-page hidden space-y-4">
+                    <h3 class="text-2xl font-extrabold text-white">Terms &amp; Conditions</h3>
+                    <p>By accessing and downloading files from <strong>daablu Datapack Hub</strong>, you agree to the following terms:</p>
+                    <ul class="list-disc list-inside space-y-2 text-zinc-300">
+                        <li><strong>Free Personal &amp; Server License:</strong> All datapacks hosted here are free to download and play on personal singleplayer worlds and public/private multiplayer Minecraft servers.</li>
+                        <li><strong>YouTube &amp; Streaming Rights:</strong> Content creators may freely feature our datapacks in monetized videos and livestreams, provided clear credit to <strong>daablu</strong> and a link to this official page are included in the description.</li>
+                        <li><strong>No Redistribution / Re-Uploading:</strong> You may not re-upload our <code class="text-purple-300 font-mono">.zip</code> files to other websites, ad-link shorteners, or claim them as your own work without written permission from daablu.</li>
+                        <li><strong>As-Is Provision:</strong> While every pack is tested for stability, always back up your Minecraft worlds before installing new datapacks. We are not liable for world save loss.</li>
+                    </ul>
+                </div>
+
+                <!-- PAGE 4: DISCLAIMER -->
+                <div id="legal-page-disclaimer" class="legal-page hidden space-y-4">
+                    <h3 class="text-2xl font-extrabold text-white">Disclaimer</h3>
+                    <div class="bg-purple-950/40 border border-purple-500/40 rounded-2xl p-4 text-purple-200 font-mono text-xs sm:text-sm font-semibold">
+                        NOT AN OFFICIAL MINECRAFT PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
+                    </div>
+                    <h4 class="text-white font-bold text-base">File Safety Statement</h4>
+                    <p>
+                        All downloads provided on daablu Datapack Hub are pure Minecraft Java datapack archives containing only <code class="text-purple-300 font-mono">.json</code> and <code class="text-purple-300 font-mono">.mcfunction</code> text files. No executable programs (<code class="text-purple-300 font-mono">.exe</code>, <code class="text-purple-300 font-mono">.jar</code>, <code class="text-purple-300 font-mono">.apk</code>) are ever distributed on this website.
+                    </p>
+                    <h4 class="text-white font-bold text-base">Advertising Disclosure</h4>
+                    <p>
+                        To keep all Minecraft datapacks and guides 100% free for everyone, this website displays clearly labeled third-party advertisements (such as Google AdSense). We never require users to click advertisements to unlock downloads.
+                    </p>
+                </div>
+
+                <!-- PAGE 5: CONTACT US -->
+                <div id="legal-page-contact" class="legal-page hidden space-y-4">
+                    <h3 class="text-2xl font-extrabold text-white">Contact daablu</h3>
+                    <p>Have a bug report, version update request, YouTube collaboration inquiry, or privacy question? Reach out directly below.</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="bg-obsidian/80 border border-purple-500/20 rounded-2xl p-4">
+                            <div class="text-xs font-mono text-purple-400 uppercase mb-1">Email Support</div>
+                            <a href="mailto:contact.daablu@gmail.com" class="text-white font-semibold hover:text-purple-300 break-all">contact.daablu@gmail.com</a>
+                            <div class="text-xs text-zinc-500 mt-1">Typical response: 24–48 hours</div>
+                        </div>
+                        <div class="bg-obsidian/80 border border-purple-500/20 rounded-2xl p-4">
+                            <div class="text-xs font-mono text-purple-400 uppercase mb-1">Discord Community</div>
+                            <a href="https://discord.gg/SxaRvKxz9u" target="_blank" rel="noopener noreferrer" class="text-white font-semibold hover:text-purple-300 flex items-center gap-1.5">
+                                <i class="fa-brands fa-discord text-[#7984f5]"></i>
+                                <span>Join daablu's Discord</span>
+                            </a>
+                            <div class="text-xs text-zinc-500 mt-1">Fastest for bug reports &amp; feedback</div>
+                        </div>
+                    </div>
+
+                    <form id="contact-form" class="space-y-3 pt-2">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <input id="contact-name" type="text" required placeholder="Your Name / Minecraft IGN"
+                                   class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian border border-purple-500/25 text-white text-sm focus:outline-none focus:border-purple-400">
+                            <input id="contact-email" type="email" required placeholder="Your Email Address"
+                                   class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian border border-purple-500/25 text-white text-sm focus:outline-none focus:border-purple-400">
+                        </div>
+                        <select id="contact-topic"
+                                class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian border border-purple-500/25 text-white text-sm focus:outline-none focus:border-purple-400">
+                            <option value="Bug Report">Bug Report</option>
+                            <option value="Datapack Idea / Request">Datapack Idea / Request</option>
+                            <option value="YouTube / Creator Inquiry">YouTube / Creator Inquiry</option>
+                            <option value="Privacy / Legal">Privacy / Legal Question</option>
+                        </select>
+                        <textarea id="contact-message" rows="3" required placeholder="Describe your issue, Minecraft version, or message..."
+                                  class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian border border-purple-500/25 text-white text-sm focus:outline-none focus:border-purple-400"></textarea>
+                        <button type="submit" class="w-full purple-glow-btn text-white font-bold py-3 rounded-xl text-sm flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Send Message</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- GDPR / ADSENSE COOKIE CONSENT BANNER                      -->
+    <!-- ========================================================= -->
+    <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 z-50 hidden max-w-4xl mx-auto">
+        <div class="bg-surface/95 backdrop-blur-xl border border-purple-500/40 rounded-2xl p-4 sm:p-5 shadow-2xl shadow-purple-950/80 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div class="flex items-start gap-3">
+                <div class="w-9 h-9 rounded-xl bg-purple-600/20 border border-purple-500/35 flex items-center justify-center text-purple-400 shrink-0 mt-0.5">
+                    <i class="fa-solid fa-cookie-bite"></i>
+                </div>
+                <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                    We use essential cookies and third-party advertising cookies (Google AdSense) to keep our Minecraft datapacks free and improve your experience. Read our
+                    <a href="#privacy-policy" onclick="openLegalModal('privacy-policy'); return false;" class="text-purple-400 underline hover:text-purple-300 font-medium">Privacy Policy</a>.
+                </p>
+            </div>
+            <div class="flex items-center gap-2.5 shrink-0 w-full md:w-auto">
+                <button type="button" onclick="setCookieConsent('essential')"
+                        class="flex-1 md:flex-none px-4 py-2.5 rounded-xl bg-panel hover:bg-zinc-800 border border-zinc-700 text-zinc-200 text-xs font-semibold transition-colors">
+                    Essential Only
+                </button>
+                <button type="button" onclick="setCookieConsent('all')"
+                        class="flex-1 md:flex-none purple-glow-btn px-5 py-2.5 rounded-xl text-white text-xs font-bold">
+                    Accept All
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Toast Notification (No alert() used) -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-panel border border-purple-500/50 text-white px-4 py-3 rounded-2xl shadow-2xl shadow-purple-950 flex items-center gap-3 text-xs sm:text-sm font-medium">
+            <span class="w-6 h-6 rounded-full bg-purple-600 flex items-center justify-center text-xs shrink-0">
+                <i class="fa-solid fa-check"></i>
+            </span>
+            <span id="toast-message">Done!</span>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- JAVASCRIPT LOGIC                                          -->
+    <!-- ========================================================= -->
+    <script>
+        /* ==============================================================
+         * CREATOR CONFIGURATION (daablu)
+         * Change your Creator Upload PIN below anytime!
+         * Default Creator PIN: 'daablu123'
+         * ============================================================== */
+        const CREATOR_PIN = 'daablu123';
+        const STORAGE_KEY_PACKS = 'daablu_custom_datapacks_v1';
+        const STORAGE_KEY_DOWNLOADS = 'daablu_download_counts_v1';
+        const STORAGE_KEY_COOKIE = 'daablu_cookie_consent_v1';
+
+        /* ==============================================================
+         * BUILT-IN DATAPACKS LIST
+         * To make newly uploaded datapacks permanent on GitHub Pages,
+         * paste the copied JSON object into this array!
+         * ============================================================== */
+        const DEFAULT_DATAPACKS = [
+            {
+                id: 'one-block-wide-world',
+                title: 'One Block Wide World (FPS Optimized)',
+                downloadUrl: 'downloads/oneblockwide.zip',
+                fileName: 'oneblockwide.zip',
+                size: '21.1 KB',
+                entries: '50 files',
+                version: '1.21.11 / 26.3+',
+                category: 'Worldgen',
+                description: 'Transforms the entire Minecraft Overworld and Nether into a 1-block-wide survival world using custom noise & density functions, adapted structures, and built-in fps_cleanup, toggle_fps, and show_help commands.',
+                features: [
+                    'Custom Overworld & Nether Noise & Density Functions',
+                    '16 Major Structures Adapted to 1-Block Strip',
+                    'Built-in fps_cleanup, toggle_fps & show_help Commands',
+                    'Multi-version Overlays (1.21.11 & 26.3+)'
+                ]
+            },
+            {
+                id: 'cant-breathe-air',
+                title: "Can't Breathe Air",
+                downloadUrl: 'downloads/cant_breathe_air.zip',
+                fileName: 'cant_breathe_air.zip',
+                size: '7.6 KB',
+                entries: '15 files',
+                version: '1.20 – 1.21+',
+                category: 'Challenge',
+                description: 'Hardcore survival challenge datapack where breathing air deals drowning damage! Features a real-time custom oxygen HUD display, player_tick air detection, and dual-folder compatibility across Java editions.',
+                features: [
+                    'Real-Time Custom Oxygen HUD Display',
+                    'player_tick Air Detection & Drowning Challenge',
+                    'Lightweight Tick Optimization',
+                    'Dual Compatibility (1.20.x & 1.21+)'
+                ]
+            }
+        ];
+// ... existing code ... -->
+        // Close modals on backdrop click
+        ['details-modal', 'download-modal', 'upload-modal', 'legal-modal'].forEach(id => {
+            document.getElementById(id).addEventListener('click', (e) => {
+                if (e.target.id === id) {
+                    if (id === 'details-modal') closeDetailsModal();
+                    if (id === 'download-modal') closeDownloadModal();
+                    if (id === 'upload-modal') closeUploadModal();
+                    if (id === 'legal-modal') closeLegalModal();
+                }
+            });
+        });
+
+        // ==============================================================
+        // GUIDE TABS, FAQ ACCORDION, LEGAL PAGES & COOKIE CONSENT
+        // ==============================================================
+        function switchGuideTab(tabKey) {
+            document.querySelectorAll('.guide-tab').forEach(btn => {
+                const isActive = btn.getAttribute('data-guide') === tabKey;
+                btn.classList.toggle('bg-purple-600', isActive);
+                btn.classList.toggle('text-white', isActive);
+                btn.classList.toggle('shadow', isActive);
+                btn.classList.toggle('bg-panel', !isActive);
+                btn.classList.toggle('text-zinc-400', !isActive);
+            });
+            document.querySelectorAll('.guide-panel').forEach(panel => {
+                panel.classList.toggle('hidden', panel.id !== `guide-panel-${tabKey}`);
+            });
+        }
+
+        function toggleFaq(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            const isOpen = !answer.classList.contains('hidden');
+            answer.classList.toggle('hidden', isOpen);
+            button.setAttribute('aria-expanded', String(!isOpen));
+            icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+
+        const LEGAL_PAGES = ['about', 'privacy-policy', 'terms', 'disclaimer', 'contact'];
+
+        function openLegalModal(pageKey) {
+            if (!LEGAL_PAGES.includes(pageKey)) return;
+
+            document.querySelectorAll('.legal-page').forEach(el => {
+                el.classList.toggle('hidden', el.id !== `legal-page-${pageKey}`);
+            });
+            document.querySelectorAll('.legal-tab').forEach(tab => {
+                const active = tab.getAttribute('data-legal') === pageKey;
+                tab.classList.toggle('bg-purple-600', active);
+                tab.classList.toggle('text-white', active);
+                tab.classList.toggle('bg-panel', !active);
+                tab.classList.toggle('text-zinc-300', !active);
+            });
+
+            const modal = document.getElementById('legal-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            if (window.location.hash !== `#${pageKey}`) {
+                history.replaceState(null, '', `#${pageKey}`);
+            }
+        }
+
+        function closeLegalModal() {
+            const modal = document.getElementById('legal-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            if (LEGAL_PAGES.includes(window.location.hash.replace('#', ''))) {
+                history.replaceState(null, '', window.location.pathname + window.location.search);
+            }
+        }
+
+        function handleLegalHash() {
+            const hash = window.location.hash.replace('#', '');
+            if (LEGAL_PAGES.includes(hash)) {
+                openLegalModal(hash);
+            }
+        }
+        window.addEventListener('hashchange', handleLegalHash);
+
+        // Contact Form Submission (No alert(), uses custom toast)
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('contact-name').value.trim();
+            document.getElementById('contact-form').reset();
+            showToast(`Thanks ${name || 'friend'}! Message received by daablu.`);
+        });
+
+        // Cookie Consent Banner Logic
+        function initCookieBanner() {
+            let consent = null;
+            try {
+                consent = localStorage.getItem(STORAGE_KEY_COOKIE);
+            } catch (err) {}
+            if (!consent) {
+                document.getElementById('cookie-banner').classList.remove('hidden');
+            }
+        }
+
+        function setCookieConsent(choice) {
+            try {
+                localStorage.setItem(STORAGE_KEY_COOKIE, choice);
+            } catch (err) {}
+            document.getElementById('cookie-banner').classList.add('hidden');
+            showToast(choice === 'all' ? 'Cookie preferences saved (All accepted).' : 'Essential cookies only enabled.');
+        }
+
+        // Toast Helper
+        let toastTimer;
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+                toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 3000);
+        }
+
+        // Initialize App on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadState();
+            renderDatapacks();
+            initCookieBanner();
+            handleLegalHash();
+        });
+    </script>
+</body>
+</html>
