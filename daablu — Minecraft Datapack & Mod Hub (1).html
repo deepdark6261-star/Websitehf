@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>daablu — Minecraft Datapack &amp; Mod Hub</title>
+
+    <!-- SEO & AdSense Compliance Meta Tags -->
+    <meta name="description" content="Download free, high-FPS Minecraft Java datapacks and mods by daablu. Featuring One Block Wide World, Can't Breathe Air, installation guides for PC &amp; PojavLauncher, and technical devlogs.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="daablu">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="daablu — Minecraft Datapack &amp; Mod Hub">
+    <meta property="og:description" content="Free custom Minecraft Java datapacks, FPS-optimized challenges, and installation guides by daablu.">
+
+    <!-- Google AdSense Auto-Ads (Uncomment & replace Publisher ID after approval) -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#09090b',
+                        cardbg: '#121217',
+                        neonpurple: '#9333ea',
+                        purpleglow: '#a855f7',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #09090b;
+            color: #f4f4f5;
+            overflow-x: hidden;
+        }
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(168, 85, 247, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
+        }
+        .glass-card {
+            background: rgba(18, 18, 23, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+        .neon-border {
+            box-shadow: 0 0 24px rgba(147, 51, 234, 0.25);
+        }
+        .ad-slot {
+            background: repeating-linear-gradient(45deg, #111116, #111116 10px, #16161e 10px, #16161e 20px);
+            border: 1px dashed rgba(168, 85, 247, 0.35);
+        }
+        .welcome-badge {
+            background: linear-gradient(135deg, #9333ea 0%, #a855f7 50%, #7e22ce 100%);
+            box-shadow: 0 0 24px rgba(168, 85, 247, 0.45);
+        }
+    </style>
+</head>
+<body class="bg-darkbg bg-grid font-sans antialiased selection:bg-purple-600 selection:text-white min-h-screen flex flex-col">
+
+    <!-- ========================================================= -->
+    <!-- 1. STICKY NAVBAR                                          -->
+    <!-- ========================================================= -->
+    <nav class="sticky top-0 z-40 glass-card border-b border-purple-500/20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand -->
+                <a href="#" class="flex items-center gap-2.5 group">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-purple-600 to-fuchsia-600 flex items-center justify-center font-extrabold text-white shadow-lg shadow-purple-600/30 group-hover:scale-105 transition-transform">
+                        D
+                    </div>
+                    <span class="text-xl font-extrabold tracking-tight text-white">daablu<span class="text-purple-400">.hub</span></span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-300">
+                    <a href="#projects" class="hover:text-purple-400 transition">Datapacks</a>
+                    <a href="#guides" class="hover:text-purple-400 transition">Install Guide</a>
+                    <a href="#devlogs" class="hover:text-purple-400 transition">Devlogs</a>
+                    <a href="#faq" class="hover:text-purple-400 transition">FAQ</a>
+                    <button type="button" onclick="openCreatorModal()" class="text-zinc-400 hover:text-white transition flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                        Creator Upload
+                    </button>
+                    <a href="https://discord.gg/SxaRvKxz9u" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold transition shadow-lg shadow-purple-600/25">
+                        Join Discord
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button type="button" onclick="toggleMobileMenu()" aria-label="Toggle Menu" class="md:hidden p-2.5 rounded-xl text-zinc-300 hover:text-white hover:bg-zinc-800 border border-zinc-800">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-zinc-800 bg-zinc-950/95 px-4 py-4 space-y-2.5 text-sm">
+            <a href="#projects" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-zinc-200 hover:bg-purple-600/15 hover:text-purple-300">Datapacks</a>
+            <a href="#guides" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-zinc-200 hover:bg-purple-600/15 hover:text-purple-300">Install Guide</a>
+            <a href="#devlogs" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-zinc-200 hover:bg-purple-600/15 hover:text-purple-300">Devlogs</a>
+            <a href="#faq" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg text-zinc-200 hover:bg-purple-600/15 hover:text-purple-300">FAQ</a>
+            <button type="button" onclick="toggleMobileMenu(); openCreatorModal()" class="w-full text-left px-3 py-2 rounded-lg text-zinc-300 hover:bg-purple-600/15 hover:text-white">Creator Upload</button>
+            <a href="https://discord.gg/SxaRvKxz9u" target="_blank" rel="noopener noreferrer" class="block text-center px-4 py-2.5 rounded-xl bg-purple-600 text-white font-semibold mt-2">Join Discord</a>
+        </div>
+    </nav>
+
+    <!-- ========================================================= -->
+    <!-- 2. HERO SECTION                                           -->
+    <!-- ========================================================= -->
+    <header class="relative overflow-hidden pt-14 pb-12 px-4 sm:px-6 lg:px-8">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-900/25 via-darkbg to-darkbg pointer-events-none"></div>
+        <div class="relative max-w-4xl mx-auto text-center">
+
+            <!-- Static Non-Clickable Purple Welcome Badge -->
+            <div class="mb-6">
+                <span class="welcome-badge inline-flex items-center gap-2 px-7 py-2.5 rounded-2xl text-white text-sm sm:text-base font-extrabold tracking-wide pointer-events-none select-none cursor-default">
+                    <span class="w-2 h-2 rounded-full bg-purple-200"></span>
+                    Welcome
+                </span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white mb-5 leading-tight">
+                Custom Minecraft <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-500">Datapacks</span> by daablu
+            </h1>
+
+            <p class="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+                High-FPS, lag-free Minecraft Java challenges, custom worldgen, and survival twists built for YouTube videos, SMP servers, and PojavLauncher mobile players.
+            </p>
+
+            <!-- Hero Action Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-3.5">
+                <a href="#projects" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 text-white font-bold transition shadow-lg shadow-purple-600/30 flex items-center gap-2">
+                    View Projects / Datapacks
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+                </a>
+                <a href="https://discord.gg/SxaRvKxz9u" target="_blank" rel="noopener noreferrer" class="px-7 py-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-purple-500/35 text-white font-semibold transition flex items-center gap-2">
+                    Join Discord
+                </a>
+                <button type="button" onclick="copyDiscordLink()" class="px-4 py-3.5 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 hover:text-white text-sm font-medium transition">
+                    Copy Invite
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================================= -->
+    <!-- 3. AD SLOT #1: LABEL / BANNER AD (ABOVE PROJECTS)         -->
+    <!-- ========================================================= -->
+    <section class="max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 my-6" aria-label="Advertisement">
+        <div class="ad-slot rounded-2xl p-4 text-center">
+            <span class="text-[11px] uppercase tracking-widest text-zinc-500 font-semibold block mb-2">Advertisement</span>
+            <div class="min-h-[90px] flex items-center justify-center text-zinc-400 text-xs sm:text-sm font-mono">
+                <!-- PASTE GOOGLE ADSENSE BANNER / DISPLAY AD CODE HERE -->
+                [ AdSense Banner Ad Slot #1 — 728x90 / Responsive ]
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 4. FEATURED DATAPACKS (#projects)                         -->
+    <!-- ========================================================= -->
+    <main id="projects" class="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 scroll-mt-20 flex-1">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+            <div>
+                <span class="text-xs font-mono uppercase tracking-widest text-purple-400 font-semibold">Official Releases</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Featured Datapacks</h2>
+                <p class="text-zinc-400 text-sm mt-1">100% free, safe <code class="text-purple-300">.zip</code> archives. Tested on Vanilla Java &amp; PojavLauncher.</p>
+            </div>
+
+            <!-- Live Search Input -->
+            <div class="relative w-full sm:w-72">
+                <svg class="w-4 h-4 text-zinc-500 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 103.5 10.5a7.5 7.5 0 0013.15 6.15z"/></svg>
+                <input type="text" id="searchInput" oninput="renderDatapacks()" placeholder="Search datapacks..."
+                       class="w-full bg-zinc-900 border border-zinc-800 focus:border-purple-500 rounded-xl pl-10 pr-4 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition">
+            </div>
+        </div>
+
+        <!-- Datapacks Grid (Populated Immediately by JS) -->
+        <div id="datapacksGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+
+        <!-- Empty Search Fallback -->
+        <div id="emptySearch" class="hidden glass-card rounded-2xl p-10 text-center mt-4">
+            <p class="text-zinc-300 font-semibold">No datapacks matched your search.</p>
+            <p class="text-zinc-500 text-xs mt-1">Try searching for "One Block" or "Breathe Air".</p>
+        </div>
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- 7A. INSTALLATION & OPTIMIZATION GUIDE (#guides)           -->
+    <!-- ========================================================= -->
+    <section id="guides" class="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-14 border-t border-zinc-900 scroll-mt-20">
+        <div class="mb-8">
+            <span class="text-xs font-mono uppercase tracking-widest text-purple-400 font-semibold">Documentation</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Installation &amp; Optimization Guide</h2>
+            <p class="text-zinc-400 text-sm mt-1">Step-by-step instructions to install daablu datapacks on PC, Multiplayer Servers, and Android.</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6">
+            <div class="flex flex-wrap gap-2 mb-6 border-b border-zinc-800 pb-4">
+                <button type="button" onclick="switchGuideTab('pc')" id="tab-pc" class="guide-tab px-4 py-2 rounded-xl text-sm font-semibold bg-purple-600 text-white transition">Java PC &amp; Servers</button>
+                <button type="button" onclick="switchGuideTab('mobile')" id="tab-mobile" class="guide-tab px-4 py-2 rounded-xl text-sm font-semibold bg-zinc-900 text-zinc-400 hover:text-white transition">Android (PojavLauncher / Mojo)</button>
+                <button type="button" onclick="switchGuideTab('fix')" id="tab-fix" class="guide-tab px-4 py-2 rounded-xl text-sm font-semibold bg-zinc-900 text-zinc-400 hover:text-white transition">Troubleshooting</button>
+            </div>
+
+            <div id="guide-pc" class="guide-content space-y-3 text-sm text-zinc-300 leading-relaxed">
+                <p><strong class="text-white">1. Download the Archive:</strong> Click the Download button on any datapack above and save the <code class="text-purple-400">.zip</code> file (do <strong>not</strong> unzip it).</p>
+                <p><strong class="text-white">2. New World (Recommended for Worldgen):</strong> Open Minecraft Java → <em>Create New World</em> → <em>More</em> → <em>Data Packs</em> → drag and drop the <code class="text-purple-400">.zip</code> file into the window and move it to the <strong>Selected</strong> column.</p>
+                <p><strong class="text-white">3. Existing World / Server:</strong> Place the <code class="text-purple-400">.zip</code> inside <code class="bg-zinc-900 px-1.5 py-0.5 rounded text-purple-300">.minecraft/saves/[WorldName]/datapacks/</code>, then run <code class="bg-zinc-900 px-1.5 py-0.5 rounded text-purple-300">/reload</code> in-game.</p>
+            </div>
+
+            <div id="guide-mobile" class="guide-content hidden space-y-3 text-sm text-zinc-300 leading-relaxed">
+                <p><strong class="text-white">1. Locate Your Downloads:</strong> After downloading the <code class="text-purple-400">.zip</code> on Android, open ZArchiver or your File Manager.</p>
+                <p><strong class="text-white">2. Copy to PojavLauncher / Mojo Launcher:</strong> Navigate to <code class="bg-zinc-900 px-1.5 py-0.5 rounded text-purple-300">Android/data/net.kdt.pojavlaunch/files/.minecraft/saves/[YourWorld]/datapacks/</code> and paste the <code class="text-purple-400">.zip</code> file there.</p>
+                <p><strong class="text-white">3. Mobile FPS Tip:</strong> Pair these datapacks with Fabric Loader + Sodium, Lithium, and Entity Culling for smooth 60+ FPS on budget Android devices.</p>
+            </div>
+
+            <div id="guide-fix" class="guide-content hidden space-y-3 text-sm text-zinc-300 leading-relaxed">
+                <p><strong class="text-white">Datapack not showing up?</strong> Make sure you didn't double-zip the folder. Inside the <code class="text-purple-400">.zip</code>, <code class="text-purple-300">pack.mcmeta</code> must be at the root level.</p>
+                <p><strong class="text-white">Worldgen not applying?</strong> Datapacks like <em>One Block Wide World</em> modify noise settings and must be added <strong>during world creation</strong> before chunks are generated.</p>
+                <p><strong class="text-white">Need help?</strong> Join our <a href="https://discord.gg/SxaRvKxz9u" target="_blank" rel="noopener noreferrer" class="text-purple-400 underline">Discord Server</a> and post in <code class="text-zinc-200">#help-support</code>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 7B. TECHNICAL DEVLOGS (#devlogs)                          -->
+    <!-- ========================================================= -->
+    <section id="devlogs" class="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-14 border-t border-zinc-900 scroll-mt-20">
+        <div class="mb-8">
+            <span class="text-xs font-mono uppercase tracking-widest text-purple-400 font-semibold">Engineering</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Technical Devlogs</h2>
+            <p class="text-zinc-400 text-sm mt-1">Behind-the-scenes breakdown of how daablu datapacks achieve high performance.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <article class="glass-card rounded-2xl p-6">
+                <span class="text-xs font-mono text-purple-400">DEVLOG #01 • WORLDGEN &amp; FPS</span>
+                <h3 class="text-xl font-bold text-white mt-2 mb-3">How One Block Wide World Eliminates Chunk Lag</h3>
+                <p class="text-sm text-zinc-400 leading-relaxed mb-3">
+                    Traditional flat-strip worlds rely on heavy command-block loops that constantly run <code class="text-purple-300">/fill</code> to clear terrain, tanking TPS on low-end devices. Instead, our datapack overrides Overworld and Nether noise settings directly using custom density functions (<code class="text-purple-300">axis_a</code>, <code class="text-purple-300">axis_b</code>, and <code class="text-purple-300">z_zero_indicator</code>).
+                </p>
+                <p class="text-sm text-zinc-400 leading-relaxed">
+                    Combined with our built-in <code class="text-purple-300">fps_cleanup.mcfunction</code> entity sweeper and toggleable FPS mode, players get a true 1-block-wide survival strip with zero extra tick overhead.
+                </p>
+            </article>
+
+            <article class="glass-card rounded-2xl p-6">
+                <span class="text-xs font-mono text-purple-400">DEVLOG #02 • SURVIVAL MECHANICS</span>
+                <h3 class="text-xl font-bold text-white mt-2 mb-3">Building Can't Breathe Air Without Scoreboard Bloat</h3>
+                <p class="text-sm text-zinc-400 leading-relaxed mb-3">
+                    Inverting Minecraft's oxygen system requires tracking whether a player's head is submerged in water or exposed to air every game tick. Our <code class="text-purple-300">player_tick.mcfunction</code> checks block predicates cleanly and updates a custom actionbar oxygen meter via <code class="text-purple-300">hud_display.mcfunction</code>.
+                </p>
+                <p class="text-sm text-zinc-400 leading-relaxed">
+                    When air runs out on land, <code class="text-purple-300">drown_damage.mcfunction</code> applies authentic drowning damage while preserving compatibility across both legacy <code class="text-purple-300">functions/</code> (1.20) and modern <code class="text-purple-300">function/</code> (1.21+) folder structures.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 7C. INTERACTIVE FAQ (#faq)                                -->
+    <!-- ========================================================= -->
+    <section id="faq" class="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-14 border-t border-zinc-900 scroll-mt-20">
+        <div class="text-center mb-8">
+            <span class="text-xs font-mono uppercase tracking-widest text-purple-400 font-semibold">Help Center</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Frequently Asked Questions</h2>
+            <p class="text-zinc-400 text-sm mt-1">Everything you need to know about using daablu datapacks.</p>
+        </div>
+
+        <div class="space-y-3" id="faqContainer"></div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 7D. DISCORD CTA SECTION                                   -->
+    <!-- ========================================================= -->
+    <section class="max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12">
+        <div class="glass-card neon-border rounded-2xl p-8 text-center">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">Want a Custom or Private Datapack?</h2>
+            <p class="text-zinc-400 text-sm sm:text-base max-w-xl mx-auto mb-6">
+                Join the official <strong class="text-white">daablu</strong> Discord server to suggest public ideas, report bugs, or open a ticket in <code class="text-purple-400">#private-datapacks</code> for exclusive YouTube commissions.
+            </p>
+            <a href="https://discord.gg/SxaRvKxz9u" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold transition shadow-lg shadow-purple-600/30">
+                Join daablu Discord Server
+            </a>
+        </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 7E. FOOTER WITH MANDATORY ADSENSE LEGAL LINKS             -->
+    <!-- ========================================================= -->
+    <footer class="border-t border-zinc-900 bg-zinc-950 py-10 px-4 sm:px-6 lg:px-8 mt-8">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <span class="text-lg font-extrabold text-white">daablu<span class="text-purple-400">.hub</span></span>
+                <p class="text-xs text-zinc-500 mt-1">© 2026 daablu. Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.</p>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-5 text-xs font-medium text-zinc-400">
+                <a href="#about" onclick="openLegalModal('about'); return false;" class="hover:text-purple-400 transition">About Us</a>
+                <a href="#privacy-policy" onclick="openLegalModal('privacy-policy'); return false;" class="hover:text-purple-400 transition">Privacy Policy</a>
+                <a href="#terms" onclick="openLegalModal('terms'); return false;" class="hover:text-purple-400 transition">Terms &amp; Conditions</a>
+                <a href="#disclaimer" onclick="openLegalModal('disclaimer'); return false;" class="hover:text-purple-400 transition">Disclaimer</a>
+                <a href="#contact" onclick="openLegalModal('contact'); return false;" class="hover:text-purple-400 transition">Contact Us</a>
+                <a href="https://discord.gg/SxaRvKxz9u" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-purple-300 transition">Discord</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================================= -->
+    <!-- 5. DOWNLOAD MODAL WITH AD SLOT #2 & 5-SECOND COUNTDOWN    -->
+    <!-- ========================================================= -->
+    <div id="downloadModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="glass-card rounded-2xl max-w-md w-full p-6 relative border border-purple-500/40 max-h-[92vh] overflow-y-auto">
+            <button type="button" onclick="closeDownloadModal()" aria-label="Close" class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-zinc-900 text-zinc-400 hover:text-white flex items-center justify-center text-xl">&times;</button>
+            <h3 id="dlTitle" class="text-xl font-bold text-white mb-1 pr-8">Preparing Download...</h3>
+            <p id="dlMeta" class="text-xs font-mono text-zinc-400 mb-4"></p>
+
+            <!-- AD SLOT #2: Download Countdown Ad (300x250) -->
+            <div class="ad-slot rounded-xl p-3 mb-5 text-center">
+                <span class="text-[10px] uppercase tracking-widest text-zinc-500 font-semibold block mb-1.5">Advertisement</span>
+                <div class="h-[250px] flex items-center justify-center text-zinc-400 text-xs font-mono">
+                    <!-- PASTE GOOGLE ADSENSE 300x250 AD CODE HERE -->
+                    [ AdSense Download Ad Slot #2 — 300x250 ]
+                </div>
+            </div>
+
+            <!-- Progress Bar & Countdown -->
+            <div class="w-full bg-zinc-800 rounded-full h-2.5 mb-3 overflow-hidden">
+                <div id="dlProgress" class="bg-gradient-to-r from-purple-600 to-fuchsia-500 h-2.5 rounded-full transition-all duration-1000 ease-linear" style="width: 0%"></div>
+            </div>
+            <p id="dlStatus" class="text-center text-xs text-zinc-400 mb-4">Your download will be ready in <span class="text-purple-400 font-bold">5</span> seconds...</p>
+
+            <a id="dlFinalBtn" href="#" download class="pointer-events-none opacity-50 block w-full text-center py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm transition">
+                Please Wait (5s)...
+            </a>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 6. CREATOR UPLOAD MODAL (PIN: daablu123)                  -->
+    <!-- ========================================================= -->
+    <div id="creatorModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="glass-card rounded-2xl max-w-lg w-full p-6 relative border border-purple-500/40 max-h-[90vh] overflow-y-auto">
+            <button type="button" onclick="closeCreatorModal()" aria-label="Close" class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-zinc-900 text-zinc-400 hover:text-white flex items-center justify-center text-xl">&times;</button>
+            <h3 class="text-xl font-bold text-white mb-1">Creator Upload Panel</h3>
+            <p class="text-xs text-zinc-400 mb-4">Protected area for daablu to add new datapacks live &amp; generate JSON for GitHub.</p>
+
+            <!-- PIN Lock Screen -->
+            <div id="pinSection" class="space-y-3">
+                <input type="password" id="creatorPin" placeholder="Enter Creator PIN (daablu123)" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3.5 py-2.5 text-sm text-white outline-none focus:border-purple-500">
+                <button type="button" onclick="verifyPin()" class="w-full py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-sm transition">Unlock Panel</button>
+                <p id="pinError" class="text-xs text-red-400 hidden">Incorrect PIN. Try again.</p>
+            </div>
+
+            <!-- Upload Form -->
+            <div id="uploadForm" class="hidden space-y-3 text-sm">
+                <input type="text" id="newTitle" placeholder="Datapack / Mod Name" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3.5 py-2.5 text-white outline-none focus:border-purple-500">
+                <div class="grid grid-cols-2 gap-2.5">
+                    <input type="text" id="newVersion" placeholder="MC Version (e.g. 1.21+)" class="bg-zinc-900 border border-zinc-700 rounded-xl px-3.5 py-2.5 text-white outline-none focus:border-purple-500">
+                    <input type="text" id="newSize" placeholder="File Size (e.g. 15 KB)" class="bg-zinc-900 border border-zinc-700 rounded-xl px-3.5 py-2.5 text-white outline-none focus:border-purple-500">
+                </div>
+                <input type="text" id="newFile" placeholder="File Path (e.g. downloads/my_pack.zip)" class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3.5 py-2.5 text-white outline-none focus:border-purple-500">
+                <textarea id="newDesc" rows="2" placeholder="Short description..." class="w-full bg-zinc-900 border border-zinc-700 rounded-xl px-3.5 py-2.5 text-white outline-none focus:border-purple-500"></textarea>
+                <button type="button" onclick="addAndGenerateDatapack()" class="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold transition">Publish Live &amp; Copy JSON</button>
+                <pre id="jsonOutput" class="hidden bg-zinc-950 border border-zinc-800 rounded-xl p-3 text-xs text-purple-300 overflow-x-auto"></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- LEGAL & TRUST MODAL                                       -->
+    <!-- ========================================================= -->
+    <div id="legalModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="glass-card rounded-2xl max-w-2xl w-full p-6 relative border border-purple-500/40 max-h-[85vh] overflow-y-auto">
+            <button type="button" onclick="closeLegalModal()" aria-label="Close" class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-zinc-900 text-zinc-400 hover:text-white flex items-center justify-center text-xl">&times;</button>
+            <h3 id="legalTitle" class="text-2xl font-bold text-white mb-4 pr-8"></h3>
+            <div id="legalBody" class="text-sm text-zinc-300 space-y-3 leading-relaxed"></div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- GDPR COOKIE CONSENT BANNER                                -->
+    <!-- ========================================================= -->
+    <div id="cookieBanner" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-md z-40 glass-card rounded-2xl p-4 border border-purple-500/40 shadow-2xl hidden">
+        <p class="text-xs text-zinc-300 leading-relaxed mb-3">
+            We use cookies and Google AdSense to personalize ads and keep our Minecraft datapacks 100% free. Read our <a href="#privacy-policy" onclick="openLegalModal('privacy-policy'); return false;" class="text-purple-400 underline">Privacy Policy</a>.
+        </p>
+        <div class="flex items-center gap-2">
+            <button type="button" onclick="acceptCookies('all')" class="flex-1 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold transition">Accept All</button>
+            <button type="button" onclick="acceptCookies('essential')" class="flex-1 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-xs font-semibold transition">Essential Only</button>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- CUSTOM TOAST NOTIFICATION (NO alert() USED)               -->
+    <!-- ========================================================= -->
+    <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-xl bg-zinc-900 border border-purple-500/50 text-white text-xs sm:text-sm font-medium shadow-2xl opacity-0 pointer-events-none transition-all duration-300">
+        <span id="toastText">Done!</span>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- JAVASCRIPT (SANDBOX-SAFE WITH TRY/CATCH)                  -->
+    <!-- ========================================================= -->
+    <script>
+        // Safe localStorage wrappers (never crashes in sandboxed iframes)
+        function safeGetStorage(key) {
+            try { return window.localStorage.getItem(key); } catch (e) { return null; }
+        }
+        function safeSetStorage(key, val) {
+            try { window.localStorage.setItem(key, val); } catch (e) {}
+        }
+
+        // Safe clipboard copy using execCommand fallback (works in iframes & mobile)
+        function safeCopyText(text, successMsg) {
+            try {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showToast(successMsg);
+            } catch (e) {
+                try {
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(text).then(() => showToast(successMsg));
+                    }
+                } catch (err) {
+                    showToast('Copy failed — please copy manually.');
+                }
+            }
+        }
+
+        // Custom Toast Notification
+        let toastTimer;
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const text = document.getElementById('toastText');
+            if (!toast || !text) return;
+            text.textContent = msg;
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            toast.classList.add('opacity-100');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.add('opacity-0', 'pointer-events-none');
+                toast.classList.remove('opacity-100');
+            }, 3000);
+        }
+
+        // ==========================================
+        // DATAPACKS DATABASE (Paste new JSON here)
+        // ==========================================
+        const datapacks = [
+            {
+                id: "one-block-wide",
+                title: "One Block Wide World (FPS Optimized)",
+                version: "1.21.11 / 26.3+",
+                size: "21.1 KB",
+                files: "50 files",
+                category: "Worldgen Challenge",
+                filePath: "downloads/oneblockwide.zip",
+                description: "Survive in a world that is strictly 1 block wide! Uses native Overworld & Nether noise overrides (axis_a, axis_b, z_zero_indicator) plus a built-in FPS cleanup system for lag-free gameplay.",
+                features: [
+                    "Custom Overworld & Nether Worldgen",
+                    "Built-in FPS Cleanup & Toggle",
+                    "Zero Command-Block Lag"
+                ]
+            },
+            {
+                id: "cant-breathe-air",
+                title: "Can't Breathe Air",
+                version: "1.20 – 1.21+",
+                size: "7.6 KB",
+                files: "15 files",
+                category: "Survival Twist",
+                filePath: "downloads/cant_breathe_air.zip",
+                description: "Air is now deadly! Stay underwater to breathe and survive. Features a live custom actionbar oxygen HUD, authentic drowning damage on land, and dual 1.20/1.21+ compatibility.",
+                features: [
+                    "Custom Actionbar Oxygen HUD",
+                    "Works on 1.20 & 1.21+",
+                    "Multiplayer & YouTube Ready"
+                ]
+            }
+        ];
+
+        const faqs = [
+            { q: "Are these datapacks free to use in YouTube videos?", a: "Yes! All free datapacks on daablu.hub can be used in YouTube videos, Shorts, and livestreams. Crediting 'daablu' or linking this website in your description is appreciated." },
+            { q: "What is the difference between a Datapack and a Mod?", a: "Datapacks run natively inside Vanilla Minecraft Java Edition without needing Forge or Fabric. Mods require a mod loader. Our datapacks work on Vanilla PC, SMP servers, and PojavLauncher." },
+            { q: "Are the .zip downloads safe and virus-free?", a: "100% safe. Datapacks only contain plain-text JSON and .mcfunction scripts read by Minecraft itself—they cannot execute system code." },
+            { q: "Do these datapacks cause lag on low-end phones or PCs?", a: "No. Every daablu datapack is specifically optimized for low-end hardware and Android PojavLauncher setups." },
+            { q: "How do I request a custom or private datapack?", a: "Join our Discord server (https://discord.gg/SxaRvKxz9u) and post public ideas in #you-ideas, or open a paid commission ticket in #private-datapacks." },
+            { q: "Which Minecraft versions are supported?", a: "Each datapack card lists its exact supported Minecraft Java versions (typically 1.20 through 1.21.11+)." }
+        ];
+
+        // Render Datapacks Grid
+        function renderDatapacks() {
+            const searchEl = document.getElementById('searchInput');
+            const grid = document.getElementById('datapacksGrid');
+            const emptyState = document.getElementById('emptySearch');
+            if (!grid) return;
+
+            const query = searchEl ? searchEl.value.trim().toLowerCase() : '';
+            const filtered = datapacks.filter(d =>
+                d.title.toLowerCase().includes(query) ||
+                d.description.toLowerCase().includes(query) ||
+                d.category.toLowerCase().includes(query)
+            );
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                if (emptyState) emptyState.classList.remove('hidden');
+                return;
+            }
+            if (emptyState) emptyState.classList.add('hidden');
+
+            grid.innerHTML = filtered.map(pack => `
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-purple-500/50 transition">
+                    <div>
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <span class="px-2.5 py-1 rounded-lg bg-purple-600/20 border border-purple-500/30 text-purple-300 text-xs font-semibold">${pack.category}</span>
+                            <span class="text-xs font-mono text-zinc-400">MC ${pack.version} • ${pack.size} • ${pack.files}</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-white mb-2">${pack.title}</h3>
+                        <p class="text-sm text-zinc-400 leading-relaxed mb-4">${pack.description}</p>
+                        <ul class="space-y-1.5 mb-6">
+                            ${pack.features.map(f => `<li class="text-xs text-zinc-300 flex items-center gap-2"><span class="text-purple-400 font-bold">✓</span> ${f}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <button type="button" onclick="openDownloadModal('${pack.id}')" class="w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-purple-600/25">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                        Download (.zip)
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Render FAQs
+        function renderFAQs() {
+            const container = document.getElementById('faqContainer');
+            if (!container) return;
+            container.innerHTML = faqs.map((item, idx) => `
+                <div class="glass-card rounded-xl overflow-hidden">
+                    <button type="button" onclick="toggleFaq(${idx})" class="w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-semibold text-sm text-white hover:bg-zinc-900/50 transition">
+                        <span>${item.q}</span>
+                        <span id="faq-icon-${idx}" class="text-purple-400 text-lg shrink-0">+</span>
+                    </button>
+                    <div id="faq-ans-${idx}" class="hidden px-5 pb-4 text-sm text-zinc-400 leading-relaxed border-t border-zinc-800/60 pt-3">
+                        ${item.a}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleFaq(idx) {
+            const ans = document.getElementById(`faq-ans-${idx}`);
+            const icon = document.getElementById(`faq-icon-${idx}`);
+            if (!ans || !icon) return;
+            const isHidden = ans.classList.contains('hidden');
+            ans.classList.toggle('hidden');
+            icon.textContent = isHidden ? '−' : '+';
+        }
+
+        // Download Modal with 5-Second Ad Timer
+        let dlInterval;
+        function openDownloadModal(id) {
+            const pack = datapacks.find(d => d.id === id);
+            if (!pack) return;
+            const modal = document.getElementById('downloadModal');
+            document.getElementById('dlTitle').textContent = pack.title;
+            document.getElementById('dlMeta').textContent = `Minecraft ${pack.version} • ${pack.size} (${pack.files})`;
+
+            const btn = document.getElementById('dlFinalBtn');
+            const progress = document.getElementById('dlProgress');
+            const status = document.getElementById('dlStatus');
+
+            btn.href = pack.filePath;
+            btn.classList.add('pointer-events-none', 'opacity-50');
+            btn.textContent = 'Please Wait (5s)...';
+            progress.style.width = '0%';
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            let timeLeft = 5;
+            status.innerHTML = `Your download will be ready in <span class="text-purple-400 font-bold">${timeLeft}</span> seconds...`;
+            clearInterval(dlInterval);
+
+            dlInterval = setInterval(() => {
+                timeLeft--;
+                progress.style.width = `${((5 - timeLeft) / 5) * 100}%`;
+                if (timeLeft > 0) {
+                    status.innerHTML = `Your download will be ready in <span class="text-purple-400 font-bold">${timeLeft}</span> seconds...`;
+                    btn.textContent = `Please Wait (${timeLeft}s)...`;
+                } else {
+                    clearInterval(dlInterval);
+                    status.textContent = 'Download ready!';
+                    btn.classList.remove('pointer-events-none', 'opacity-50');
+                    btn.textContent = 'Click Here to Download .zip';
+                }
+            }, 1000);
+        }
+
+        function closeDownloadModal() {
+            clearInterval(dlInterval);
+            const modal = document.getElementById('downloadModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Creator Upload Panel (PIN: daablu123)
+        function openCreatorModal() {
+            const modal = document.getElementById('creatorModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        function closeCreatorModal() {
+            const modal = document.getElementById('creatorModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+        function verifyPin() {
+            const pin = document.getElementById('creatorPin').value;
+            if (pin === 'daablu123') {
+                document.getElementById('pinSection').classList.add('hidden');
+                document.getElementById('uploadForm').classList.remove('hidden');
+                document.getElementById('pinError').classList.add('hidden');
+                showToast('Creator Panel unlocked!');
+            } else {
+                document.getElementById('pinError').classList.remove('hidden');
+            }
+        }
+        function addAndGenerateDatapack() {
+            const title = document.getElementById('newTitle').value.trim() || 'New Datapack';
+            const version = document.getElementById('newVersion').value.trim() || '1.21+';
+            const size = document.getElementById('newSize').value.trim() || '12 KB';
+            const filePath = document.getElementById('newFile').value.trim() || 'downloads/new_pack.zip';
+            const description = document.getElementById('newDesc').value.trim() || 'Custom Minecraft datapack by daablu.';
+
+            const newObj = {
+                id: title.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + Date.now().toString().slice(-3),
+                title,
+                version,
+                size,
+                files: 'Custom',
+                category: 'Minecraft Datapack',
+                filePath,
+                description,
+                features: ['Optimized for Java & PojavLauncher', '100% Free Download']
+            };
+
+            // Add live to current preview
+            datapacks.unshift(newObj);
+            renderDatapacks();
+
+            // Display & copy JSON for GitHub
+            const jsonStr = JSON.stringify(newObj, null, 4) + ',';
+            const out = document.getElementById('jsonOutput');
+            out.textContent = jsonStr;
+            out.classList.remove('hidden');
+            safeCopyText(jsonStr, 'Added live & JSON copied for GitHub!');
+        }
+
+        // Installation Guide Tabs
+        function switchGuideTab(tab) {
+            document.querySelectorAll('.guide-content').forEach(el => el.classList.add('hidden'));
+            const activePanel = document.getElementById(`guide-${tab}`);
+            if (activePanel) activePanel.classList.remove('hidden');
+
+            document.querySelectorAll('.guide-tab').forEach(btn => {
+                btn.classList.remove('bg-purple-600', 'text-white');
+                btn.classList.add('bg-zinc-900', 'text-zinc-400');
+            });
+            const activeBtn = document.getElementById(`tab-${tab}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-zinc-900', 'text-zinc-400');
+                activeBtn.classList.add('bg-purple-600', 'text-white');
+            }
+        }
+
+        // Legal Modals
+        const legalContent = {
+            'about': {
+                title: 'About daablu.hub',
+                body: '<p><strong>daablu.hub</strong> is an independent Minecraft Java datapack and gaming project hub created by daablu. Our mission is to build creative, high-FPS survival challenges and custom worldgen packs that run smoothly on both PC and mobile (PojavLauncher / Mojo Launcher).</p>'
+            },
+            'privacy-policy': {
+                title: 'Privacy Policy',
+                body: '<p>At <strong>daablu.hub</strong>, your privacy is important to us. We do not collect personal information unless you voluntarily contact us via email or Discord.</p><p><strong>Google AdSense &amp; DoubleClick DART Cookie:</strong> Google, as a third-party vendor, uses cookies to serve ads on our site. Users may opt out of personalized advertising by visiting <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" class="text-purple-400 underline">Google Ads Settings</a>.</p><p><strong>GDPR &amp; CCPA:</strong> You have the right to opt out of non-essential cookies using our cookie consent banner. We do not knowingly collect data from children under 13.</p>'
+            },
+            'terms': {
+                title: 'Terms & Conditions',
+                body: '<p>All free datapacks hosted on daablu.hub are provided for personal gameplay and YouTube content creation. You may not re-upload our files to third-party paywall sites or claim them as your own work. Paid/private commissions are strictly for the buyer and may not be redistributed.</p>'
+            },
+            'disclaimer': {
+                title: 'Disclaimer',
+                body: '<p>daablu.hub is NOT an official Minecraft product and is NOT approved by or associated with Mojang AB or Microsoft Corporation. All Minecraft trademarks belong to their respective owners.</p>'
+            },
+            'contact': {
+                title: 'Contact Us',
+                body: '<p>Have a question, bug report, or business inquiry? Reach out anytime:</p><p>• <strong>Email:</strong> <a href="mailto:contact.daablu@gmail.com" class="text-purple-400 underline">contact.daablu@gmail.com</a></p><p>• <strong>Discord Server:</strong> <a href="https://discord.gg/SxaRvKxz9u" target="_blank" rel="noopener noreferrer" class="text-purple-400 underline">https://discord.gg/SxaRvKxz9u</a></p>'
+            }
+        };
+
+        function openLegalModal(key) {
+            const data = legalContent[key];
+            if (!data) return;
+            document.getElementById('legalTitle').textContent = data.title;
+            document.getElementById('legalBody').innerHTML = data.body;
+            const modal = document.getElementById('legalModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        function closeLegalModal() {
+            const modal = document.getElementById('legalModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Helpers
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+        function copyDiscordLink() {
+            safeCopyText('https://discord.gg/SxaRvKxz9u', 'Discord invite link copied!');
+        }
+        function acceptCookies(type) {
+            safeSetStorage('daablu_cookie_consent', type);
+            document.getElementById('cookieBanner').classList.add('hidden');
+            showToast('Cookie preferences saved.');
+        }
+
+        // Initialize Immediately
+        function initApp() {
+            renderDatapacks();
+            renderFAQs();
+            if (!safeGetStorage('daablu_cookie_consent')) {
+                const banner = document.getElementById('cookieBanner');
+                if (banner) banner.classList.remove('hidden');
+            }
+            try {
+                const hash = window.location.hash.replace('#', '');
+                if (legalContent[hash]) openLegalModal(hash);
+            } catch (e) {}
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initApp);
+        } else {
+            initApp();
+        }
+    </script>
+</body>
+</html>
